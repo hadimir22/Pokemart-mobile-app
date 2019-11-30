@@ -6,6 +6,9 @@ import {
   TextInput,
   TouchableOpacity,
 } from 'react-native';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
+import {withNavigation} from 'react-navigation';
 
 class Search extends Component {
   constructor(props) {
@@ -22,28 +25,9 @@ class Search extends Component {
   render() {
     return (
       <View style={styles.main}>
-        {/* <View style={styles.ham}>
-        <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-          <Text>
-            <Icon name="bars" size={25} color="#0984e3" />
-          </Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.search}>
-        <TextInput
-          value={this.state.searchTerm}
-          style={styles.inputBox}
-          onChangeText={text => this.setState({searchTerm: text})}
-        />
-        <TouchableOpacity
-          style={styles.searchBtn}
-          onPress={() => this.handleSearch(this.state.searchTerm)}>
-          <EvilIcons name="search" size={30} color="#0984e3" />
-        </TouchableOpacity>
-      </View> */}
         <View style={styles.ham}>
           <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-            <Text>=</Text>
+            <Icon name="bars" size={25} color="#0984e3" />
           </TouchableOpacity>
         </View>
         <View style={styles.search}>
@@ -55,11 +39,13 @@ class Search extends Component {
           <TouchableOpacity
             style={styles.searchBtn}
             onPress={() => this.handleSearch(this.state.searchTerm)}>
-            <Text>@</Text>
+            <EvilIcons name="search" size={30} color="#0984e3" />
           </TouchableOpacity>
         </View>
         <View style={styles.cart}>
-          <Text>+</Text>
+          <TouchableOpacity>
+            <EvilIcons name="cart" size={30} color="#0984e3" />
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -98,7 +84,7 @@ const styles = StyleSheet.create({
   searchBtn: {
     position: 'absolute',
     right: 8,
-    top: 0,
+    top: 5,
   },
 
   inputBox: {
@@ -108,4 +94,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Search;
+export default withNavigation(Search);

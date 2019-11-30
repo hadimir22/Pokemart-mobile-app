@@ -10,13 +10,39 @@ import {
 } from 'react-native';
 import Carousel from './carousel';
 import HorizontalList from '../../common/horizontalList';
+import Search from '../../common/search';
+import axios from 'axios';
 
-export default class App extends PureComponent {
+export default class Home extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: null,
+    };
+  }
+  componentDidMount() {
+    this.getData();
+  }
+
+  getData = async () => {
+    let data = await axios.get(
+      'http://kbeesolutions.co.in/api/get-homepage-data',
+    );
+    this.setState(data);
+    console.log('data', data.data.slider);
+  };
+
   render() {
-    return (
+    return !this.state.data ? (
+      <View>
+        <Text>Loadding</Text>
+      </View>
+    ) : (
       <SafeAreaView style={styles.container}>
         <ScrollView style={styles.scrollView}>
-          <Carousel />
+          <Search />
+          <Carousel carouselData={this.state.data.slider} />
           <HorizontalList />
           <View style={styles.banner}>
             <Text>Here is an offer</Text>
@@ -32,7 +58,6 @@ export const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 70,
     backgroundColor: 'white',
   },
   child: {

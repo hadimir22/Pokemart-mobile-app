@@ -11,9 +11,10 @@ import {
 
 import {createAppContainer, NavigationActions} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
-import Landing from './screens/landing';
+import Home from './screens/landing';
 import About from './screens/about';
-//import idrak from '../assets/idrak.png';
+import logo from './assets/logo.png';
+import axios from 'axios';
 
 class CustomDrawer extends Component {
   navigateToScreen = route => () => {
@@ -26,19 +27,20 @@ class CustomDrawer extends Component {
 
   render() {
     return (
-      <View style={{flex: 1, justifyContent: 'space-around'}}>
+      <View style={{flex: 1, justifyContent: 'space-around', marginTop: 50}}>
         <View style={styles.topStyle}>
           {/* <Image
-            source={idrak}
+            source={logo}
             style={{height: 100, width: 100}}
             resizeMode="contain"
           /> */}
+          <Text>hey</Text>
         </View>
 
         <View>
           <TouchableOpacity
             style={styles.btn}
-            onPress={this.navigateToScreen('Landing')}>
+            onPress={this.navigateToScreen('Home')}>
             <Text>Home</Text>
           </TouchableOpacity>
 
@@ -69,8 +71,8 @@ const styles = StyleSheet.create({
 });
 
 const DrawerNav = {
-  Landing: {
-    screen: Landing,
+  Home: {
+    screen: Home,
   },
 
   About: {
@@ -83,4 +85,3 @@ const DrawerNavigatorConfig = {
 };
 
 export default createDrawerNavigator(DrawerNav, DrawerNavigatorConfig);
-//export default createAppContainer(DrawerNav);

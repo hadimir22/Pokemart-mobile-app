@@ -1,29 +1,42 @@
 import React, {PureComponent} from 'react';
-import {Text, Dimensions, Image, StyleSheet, View} from 'react-native';
+import {Text, Image, Dimensions, StyleSheet, View} from 'react-native';
 import SwiperFlatList from 'react-native-swiper-flatlist';
 
 class Carousel extends PureComponent {
+  constructor(props) {
+    super(props);
+    console.log('props', this.props.carouselData);
+  }
   render() {
     return (
       <View style={styles.container}>
         <SwiperFlatList
           autoplay
-          autoplayDelay={3}
+          autoplayDelay={this.props.carouselData.autoplay_speed / 1000}
           autoplayLoop
           index={2}
           showPagination>
-          <View style={[styles.child, {backgroundColor: 'tomato'}]}>
-            <Text style={styles.text}>1</Text>
-          </View>
-          <View style={[styles.child, {backgroundColor: 'thistle'}]}>
-            <Text style={styles.text}>2</Text>
-          </View>
-          <View style={[styles.child, {backgroundColor: 'skyblue'}]}>
-            <Text style={styles.text}>3</Text>
-          </View>
-          <View style={[styles.child, {backgroundColor: 'teal'}]}>
-            <Text style={styles.text}>4</Text>
-          </View>
+          {this.props.carouselData.slides.map(slide => {
+            return (
+              <View
+                key={slide.id}
+                style={[styles.child, {backgroundColor: 'orangered'}]}>
+                <Image
+                  source={{uri: slide.file.path}}
+                  style={{
+                    height: Dimensions.get('window').height / 2,
+                    width: Dimensions.get('window').width,
+                  }}
+                  resizeMode="cover"
+                />
+                <View style={styles.captions}>
+                  <Text style={styles.captionText}>{slide.caption_1}</Text>
+                  <Text style={styles.captionText}>{slide.caption_2}</Text>
+                  <Text style={styles.captionText}>{slide.caption_3}</Text>
+                </View>
+              </View>
+            );
+          })}
         </SwiperFlatList>
       </View>
     );
@@ -38,13 +51,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   child: {
-    height: height * 0.5,
-    width,
+    height: 300,
     justifyContent: 'center',
+    position: 'relative',
   },
-  text: {
-    fontSize: width * 0.5,
+  captionText: {
+    fontSize: 20,
+    fontWeight: '700',
+    color: 'white',
     textAlign: 'center',
+  },
+  captions: {
+    position: 'absolute',
+    top: '50%',
   },
 });
 
