@@ -5,7 +5,6 @@ import SwiperFlatList from 'react-native-swiper-flatlist';
 class Carousel extends PureComponent {
   constructor(props) {
     super(props);
-    console.log('props', this.props.carouselData);
   }
   render() {
     return (

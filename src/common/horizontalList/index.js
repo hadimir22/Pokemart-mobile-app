@@ -1,5 +1,12 @@
-import React from 'react';
-import {SafeAreaView, View, FlatList, StyleSheet, Text} from 'react-native';
+import React, {Component} from 'react';
+import {
+  SafeAreaView,
+  View,
+  FlatList,
+  StyleSheet,
+  Text,
+  ImageBackground,
+} from 'react-native';
 
 const DATA = [
   {
@@ -16,27 +23,42 @@ const DATA = [
   },
 ];
 
-function Item({title}) {
+function Item({item}) {
   return (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
+    <ImageBackground
+      source={{uri: item.files[0].path}}
+      style={[styles.item, {height: 200, width: 150}]}>
+      <View style={styles.info}>
+        <Text style={styles.title}>{item.slug}</Text>
+        <Text style={styles.title}>{item.price.formatted}</Text>
+      </View>
+    </ImageBackground>
   );
 }
 
-export default function HorizontalList() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <Text style={styles.heading}>Heading</Text>
-      <FlatList
-        data={DATA}
-        renderItem={({item}) => <Item title={item.title} />}
-        keyExtractor={item => item.id}
-        horizontal
-        showsHorizontalScrollIndicator={false}
-      />
-    </SafeAreaView>
-  );
+class HorizontalList extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      data: this.props.featuredData,
+    };
+  }
+  render() {
+    return (
+      <SafeAreaView style={styles.container}>
+        {console.log('listtt', this.props)}
+        <Text style={styles.heading}>{this.props.heading}</Text>
+        <FlatList
+          data={this.state.data}
+          renderItem={({item}) => <Item item={item} />}
+          keyExtractor={item => item.id}
+          horizontal
+          showsHorizontalScrollIndicator={false}
+        />
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -46,13 +68,16 @@ const styles = StyleSheet.create({
   },
   item: {
     backgroundColor: 'green',
-    padding: 20,
+    padding: 25,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 15,
+    overflow: 'hidden',
   },
   title: {
-    fontSize: 32,
+    fontSize: 18,
+    textAlign: 'center',
+    color: 'black',
   },
   heading: {
     fontSize: 20,
@@ -60,4 +85,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingBottom: 10,
   },
+  info: {
+    position: 'absolute',
+    bottom: 0,
+    width: 150,
+    backgroundColor: 'white',
+    opacity: 0.7,
+  },
 });
+
+export default HorizontalList;

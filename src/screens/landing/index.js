@@ -30,7 +30,8 @@ export default class Home extends PureComponent {
       'http://kbeesolutions.co.in/api/get-homepage-data',
     );
     this.setState(data);
-    console.log('data', data.data.slider);
+    console.log('data', data.data);
+    console.log('data', data.data.landscapeProducts);
   };
 
   render() {
@@ -43,7 +44,25 @@ export default class Home extends PureComponent {
         <ScrollView style={styles.scrollView}>
           <Search />
           <Carousel carouselData={this.state.data.slider} />
-          <HorizontalList />
+          {this.state.data.landscapeProducts ? (
+            <HorizontalList
+              featuredData={this.state.data.landscapeProducts}
+              heading="Featured"
+            />
+          ) : null}
+          {this.state.data.landscapeProducts ? (
+            <HorizontalList
+              featuredData={this.state.data.landscapeProducts}
+              heading="On Sale"
+            />
+          ) : null}
+          {this.state.data.landscapeProducts ? (
+            <HorizontalList
+              featuredData={this.state.data.landscapeProducts}
+              heading="Top Rated"
+            />
+          ) : null}
+
           <View style={styles.banner}>
             <Text>Here is an offer</Text>
           </View>
