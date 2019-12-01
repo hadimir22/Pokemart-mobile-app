@@ -34,7 +34,7 @@ export default class Home extends PureComponent {
       'http://kbeesolutions.co.in/api/get-homepage-data',
     );
     this.setState(data);
-    // console.log('orignal', data.data);
+    console.log('orignal', data.data);
     // console.log('sliderBanners', this.state.data.sliderBanners);
   };
 

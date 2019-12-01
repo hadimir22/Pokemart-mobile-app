@@ -4,6 +4,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import CustomDrawer from './drawer';
 import About from '../src/screens/about';
 import Landing from '../src/screens/landing';
+import Product from '../src/screens/product';
 
 const StackNav = createStackNavigator(
   {
@@ -22,6 +23,10 @@ const StackNav = createStackNavigator(
 
     About: {
       screen: About,
+    },
+
+    Product: {
+      screen: Product,
       navigationOptions: ({navigation}) => ({
         header: null,
       }),
