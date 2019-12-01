@@ -37,7 +37,7 @@ class Banner extends Component {
         <FlatList
           data={this.state.data}
           renderItem={({item}) => <Item item={item} />}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.image.id}
         />
       </SafeAreaView>
     );

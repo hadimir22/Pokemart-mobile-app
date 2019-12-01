@@ -14,6 +14,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import Home from './screens/landing';
 import About from './screens/about';
 import logo from './assets/logo.png';
+import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import axios from 'axios';
 
 class CustomDrawer extends Component {
@@ -28,30 +29,61 @@ class CustomDrawer extends Component {
   render() {
     return (
       <View style={{flex: 1, justifyContent: 'space-around', marginTop: 50}}>
-        <View style={styles.topStyle}>
-          {/* <Image
+        <View style={{marginVertical: 50}}>
+          <Image
             source={logo}
             style={{height: 100, width: 100}}
             resizeMode="contain"
-          /> */}
-          <Text>hey</Text>
+          />
         </View>
 
         <View>
           <TouchableOpacity
             style={styles.btn}
             onPress={this.navigateToScreen('Home')}>
-            <Text>Home</Text>
+            <Icon name="home" size={25} color="black" />
+            <Text style={styles.text}>Home</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
             style={styles.btn}
             onPress={this.navigateToScreen('About')}>
-            <Text>About</Text>
+            <Icon name="shopping-bag" size={25} color="black" />
+            <Text style={styles.text}>Shop</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={this.navigateToScreen('About')}>
+            <Icon name="shopping-cart" size={25} color="black" />
+            <Text style={styles.text}>Cart</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={this.navigateToScreen('About')}>
+            <Icon name="user-circle-o" size={25} color="black" />
+            <Text style={styles.text}>Login</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={this.navigateToScreen('About')}>
+            <Icon name="exchange" size={25} color="black" />
+            <Text style={styles.text}>Compare</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={this.navigateToScreen('About')}>
+            <Icon name="info-circle" size={25} color="black" />
+            <Text style={styles.text}>About</Text>
           </TouchableOpacity>
         </View>
 
-        <Text style={{paddingLeft: 120}}> shoply v2.0</Text>
+        <Text style={{textAlign: 'center'}}>
+          Made with <Icon name="heart" size={20} color="red" /> v1.0
+        </Text>
       </View>
     );
   }
@@ -59,7 +91,9 @@ class CustomDrawer extends Component {
 
 const styles = StyleSheet.create({
   btn: {
-    textAlign: 'center',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
     height: 50,
     padding: 25,
     borderBottomWidth: 0.5,
@@ -67,6 +101,10 @@ const styles = StyleSheet.create({
   topStyle: {
     alignSelf: 'center',
     borderColor: 'black',
+  },
+  text: {
+    marginLeft: 10,
+    fontSize: 15,
   },
 });
 
@@ -78,8 +116,12 @@ const DrawerNav = {
   About: {
     screen: About,
   },
+  Now: {
+    screen: About,
+  },
 };
 const DrawerNavigatorConfig = {
+  contentComponent: CustomDrawer,
   drawerType: 'slide',
   drawerWidth: 300,
 };
