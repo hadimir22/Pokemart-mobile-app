@@ -19,12 +19,12 @@ function Item({item}) {
   );
 }
 
-class HorizontalList extends Component {
+class FlatListComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: this.props.listData,
+      data: this.props.tabData,
     };
   }
   render() {
@@ -35,8 +35,7 @@ class HorizontalList extends Component {
           data={this.state.data}
           renderItem={({item}) => <Item item={item} />}
           keyExtractor={item => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
+          numColumns={2}
         />
       </SafeAreaView>
     );
@@ -46,18 +45,19 @@ class HorizontalList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
   },
   item: {
-    backgroundColor: 'green',
     padding: 25,
     marginVertical: 8,
     marginHorizontal: 16,
     borderRadius: 15,
+    overflow: 'hidden',
     height: 200,
     width: 150,
-    overflow: 'hidden',
   },
   title: {
     fontSize: 18,
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HorizontalList;
+export default FlatListComponent;

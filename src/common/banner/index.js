@@ -3,6 +3,7 @@ import {
   SafeAreaView,
   View,
   FlatList,
+  Dimensions,
   StyleSheet,
   Text,
   ImageBackground,
@@ -10,33 +11,33 @@ import {
 
 function Item({item}) {
   return (
-    <ImageBackground source={{uri: item.files[0].path}} style={styles.item}>
+    <ImageBackground
+      source={{uri: item.image.path}}
+      style={styles.item}
+      resizeMode="stretch">
       <View style={styles.info}>
-        <Text style={styles.title}>{item.slug}</Text>
-        <Text style={styles.title}>{item.price.formatted}</Text>
+        <Text style={styles.title}>{item.caption_1}</Text>
+        <Text style={styles.title}>{item.caption_2}</Text>
       </View>
     </ImageBackground>
   );
 }
 
-class HorizontalList extends Component {
+class Banner extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      data: this.props.listData,
+      data: this.props.bannerData,
     };
   }
   render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text style={styles.heading}>{this.props.heading}</Text>
         <FlatList
           data={this.state.data}
           renderItem={({item}) => <Item item={item} />}
           keyExtractor={item => item.id}
-          horizontal
-          showsHorizontalScrollIndicator={false}
         />
       </SafeAreaView>
     );
@@ -46,18 +47,19 @@ class HorizontalList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
   },
   item: {
-    backgroundColor: 'green',
     padding: 25,
     marginVertical: 8,
     marginHorizontal: 16,
-    borderRadius: 15,
-    height: 200,
-    width: 150,
     overflow: 'hidden',
+    height: 200,
+    alignSelf: 'center',
+    width: Dimensions.get('window').width - 50,
   },
   title: {
     fontSize: 18,
@@ -79,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HorizontalList;
+export default Banner;
