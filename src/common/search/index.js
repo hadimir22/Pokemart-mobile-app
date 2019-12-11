@@ -8,7 +8,9 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
-import {withNavigation} from 'react-navigation';
+import FeatherIcons from 'react-native-vector-icons/dist/Feather';
+import {withNavigation, NavigationActions} from 'react-navigation';
+import {colorBlack, colorWhite} from '../../constants';
 
 class Search extends Component {
   constructor(props) {
@@ -19,32 +21,44 @@ class Search extends Component {
     };
   }
 
+  navigateToScreen = route => () => {
+    const navigateAction = NavigationActions.navigate({
+      routeName: route,
+    });
+    this.props.navigation.dispatch(navigateAction);
+  };
+
   componentDidMount() {}
   handleSearch = async searchTerm => {};
 
   render() {
     return (
-      <View style={styles.main}>
-        <View style={styles.ham}>
-          <TouchableOpacity onPress={() => this.props.navigation.openDrawer()}>
-            <Icon name="bars" size={25} color="#0984e3" />
-          </TouchableOpacity>
+      <View style={{marginBottom: 25, paddingHorizontal: 20}}>
+        <View style={styles.main}>
+          <View style={styles.menuBtn}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.openDrawer()}>
+              <FeatherIcons name="list" size={25} color={colorBlack} />
+            </TouchableOpacity>
+          </View>
+
+          <View>
+            <TouchableOpacity onPress={this.navigateToScreen('Profile')}>
+              <FeatherIcons name="user" size={25} color={colorBlack} />
+            </TouchableOpacity>
+          </View>
         </View>
         <View style={styles.search}>
           <TextInput
             value={this.state.searchTerm}
             style={styles.inputBox}
+            placeholder="Search"
             onChangeText={text => this.setState({searchTerm: text})}
           />
           <TouchableOpacity
             style={styles.searchBtn}
             onPress={() => this.handleSearch(this.state.searchTerm)}>
-            <EvilIcons name="search" size={30} color="#0984e3" />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.cart}>
-          <TouchableOpacity>
-            <EvilIcons name="cart" size={30} color="#0984e3" />
+            <EvilIcons name="search" size={30} color={colorBlack} />
           </TouchableOpacity>
         </View>
       </View>
@@ -56,28 +70,17 @@ const styles = StyleSheet.create({
   main: {
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'white',
-    justifyContent: 'space-around',
-    paddingLeft: 5,
-    paddingVertical: 20,
-    maxHeight: 70,
+    justifyContent: 'space-between',
+    paddingVertical: 15,
   },
 
-  ham: {
-    paddingLeft: 5,
-  },
-
-  cart: {
-    paddingRight: 5,
-  },
   search: {
-    backgroundColor: 'white',
-    color: 'black',
-    borderColor: '#bdc3c7',
-    borderWidth: 1,
-    borderRadius: 5,
-    width: '80%',
-    paddingRight: 40,
+    alignSelf: 'center',
+    backgroundColor: colorWhite,
+    color: colorBlack,
+    borderRadius: 10,
+    elevation: 10,
+    width: '100%',
     height: 40,
   },
 

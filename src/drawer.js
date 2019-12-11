@@ -1,111 +1,148 @@
 import React, {Component} from 'react';
-
 import {
   Text,
   TouchableOpacity,
   View,
   StyleSheet,
   Image,
-  Platform,
+  ScrollView,
 } from 'react-native';
-
 import {createAppContainer, NavigationActions} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
+import Profile from './screens/profile';
+import Orders from './screens/orders';
+import NOtifications from './screens/notifications';
+import Logo from '../src/assets/logo.png';
 import Home from './screens/landing';
 import About from './screens/about';
 import Product from './screens/product';
-import Icon from 'react-native-vector-icons/dist/FontAwesome';
-import axios from 'axios';
+import MainTab from './tabs';
+import Shop from './screens/shop';
+import FeatherIcon from 'react-native-vector-icons/dist/Feather';
+import Main from './main';
+import {
+  drawerBackgroundColor,
+  drawerIconColor,
+  drawerSectionTextColor,
+  drawerTextColor,
+  drawerHeaderColor,
+  fontPoppins,
+} from './constants';
 
 class CustomDrawer extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      data: null,
-    };
   }
   navigateToScreen = route => () => {
     const navigateAction = NavigationActions.navigate({
       routeName: route,
-      params: {social: this.state.data.socialLinks},
     });
     this.props.navigation.dispatch(navigateAction);
     this.props.navigation.closeDrawer();
   };
 
-  componentDidMount() {
-    this.getMenu();
-  }
-
-  getMenu = async () => {
-    let data = await axios.get(
-      'http://kbeesolutions.co.in/api/get-layout-data',
-    );
-    this.setState({data: data.data});
-    console.log('oops', data.data);
-  };
+  componentDidMount() {}
 
   render() {
-    return this.state.data == null ? (
-      <Text>Hold on</Text>
-    ) : (
-      <View style={{flex: 1, justifyContent: 'space-around', marginTop: 50}}>
-        <View style={styles.logo}>
-          <Image
-            source={{uri: this.state.data.headerLogo}}
+    return (
+      <View style={{flex: 1, backgroundColor: drawerBackgroundColor}}>
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <View style={styles.logo}>
+            {/* <Image
+            source={Logo}
             style={{height: 100, width: 100}}
             resizeMode="contain"
-          />
-        </View>
+          /> */}
+            <FeatherIcon name="user" size={50} color={drawerIconColor} />
+            <Text style={{fontFamily: fontPoppins}}>Hello, user</Text>
+          </View>
 
-        <View>
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('Home')}>
-            <Icon name="home" size={25} color="black" />
-            <Text style={styles.text}>Home</Text>
-          </TouchableOpacity>
+          <View style={{paddingVertical: 15}}>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('Home')}>
+              <FeatherIcon name="home" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Home</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('Shop')}>
-            <Icon name="shopping-bag" size={25} color="black" />
-            <Text style={styles.text}>Shop</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('Shop')}>
+              <FeatherIcon
+                name="shopping-bag"
+                size={25}
+                color={drawerIconColor}
+              />
+              <Text style={styles.text}>Shop</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('About')}>
-            <Icon name="shopping-cart" size={25} color="black" />
-            <Text style={styles.text}>Cart</Text>
-          </TouchableOpacity>
+            <Text style={styles.section}>Products</Text>
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('About')}>
-            <Icon name="user-circle-o" size={25} color="black" />
-            <Text style={styles.text}>Login</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('About')}>
+              <FeatherIcon
+                name="shopping-cart"
+                size={25}
+                color={drawerIconColor}
+              />
+              <Text style={styles.text}>Cart</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('About')}>
-            <Icon name="exchange" size={25} color="black" />
-            <Text style={styles.text}>Compare</Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('Profile')}>
+              <FeatherIcon name="user" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Profile</Text>
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.btn}
-            onPress={this.navigateToScreen('About')}>
-            <Icon name="info-circle" size={25} color="black" />
-            <Text style={styles.text}>About</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('Orders')}>
+              <FeatherIcon name="box" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Orders</Text>
+            </TouchableOpacity>
 
-        <Text style={{textAlign: 'center'}}>
-          Made with <Icon name="heart" size={20} color="red" /> v1.0
-        </Text>
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('About')}>
+              <FeatherIcon name="heart" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Wish list</Text>
+            </TouchableOpacity>
+
+            <Text style={styles.section}>App preferences</Text>
+
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('About')}>
+              <FeatherIcon name="info" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>About</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('About')}>
+              <FeatherIcon name="settings" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Setting</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.btn}
+              onPress={this.navigateToScreen('About')}>
+              <FeatherIcon name="log-out" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Logout</Text>
+            </TouchableOpacity>
+          </View>
+
+          <Text
+            style={{
+              textAlign: 'center',
+              color: drawerTextColor,
+              fontFamily: fontPoppins,
+            }}>
+            Made with <FeatherIcon name="heart" size={20} color="red" /> v1.0
+          </Text>
+        </ScrollView>
       </View>
     );
   }
@@ -116,35 +153,45 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    height: 50,
-    padding: 25,
-    borderBottomWidth: 0.5,
+    padding: 10,
   },
-  topStyle: {
-    alignSelf: 'center',
-    borderColor: 'black',
+  section: {
+    fontFamily: fontPoppins,
+    fontSize: 15,
+    fontWeight: 'bold',
+    padding: 13,
+    color: drawerSectionTextColor,
   },
   text: {
+    fontFamily: fontPoppins,
     marginLeft: 10,
     fontSize: 15,
+    color: drawerTextColor,
   },
   logo: {
-    marginVertical: 20,
+    backgroundColor: drawerHeaderColor,
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 40,
+    borderBottomWidth: 0.5,
   },
 });
 
 const DrawerNav = {
   Home: {
-    screen: Home,
+    screen: Main,
   },
-
+  Profile: {
+    screen: Profile,
+  },
+  Orders: {
+    screen: Orders,
+  },
   About: {
     screen: About,
   },
   Shop: {
-    screen: Product,
+    screen: Shop,
   },
 };
 const DrawerNavigatorConfig = {

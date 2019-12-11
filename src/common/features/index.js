@@ -5,13 +5,12 @@ import Icon from 'react-native-vector-icons/dist/FontAwesome';
 class Features extends React.Component {
   constructor(props) {
     super(props);
-    console.log('daop', this.props);
   }
   render() {
     return (
       <View
         style={{
-          backgroundColor: 'red',
+          backgroundColor: 'white',
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',

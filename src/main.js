@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, StatusBar} from 'react-native';
 import Search from '../src/common/search';
-import Landing from './screens/landing';
-
+import MainTab from './tabs';
+import {backgroundColorPrimary} from './constants/index';
 class Main extends Component {
   render() {
     return (
-      <>
+      <View
+        style={{
+          backgroundColor: backgroundColorPrimary,
+          flex: 1,
+        }}>
+        <StatusBar
+          backgroundColor={backgroundColorPrimary}
+          barStyle="dark-content"
+        />
         <Search />
-        <Landing />
-      </>
+        <MainTab />
+      </View>
     );
   }
 }

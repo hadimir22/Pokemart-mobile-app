@@ -17,20 +17,6 @@ class About extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <View style={styles.topStyle}>
-          <View style={styles.back}>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.openDrawer()}>
-              <Text>
-                <Icon name="bars" size={25} color="black" />
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.about}>
-            <Text style={styles.screenName}>About</Text>
-          </View>
-        </View>
         <View style={styles.storeInfo}>
           <Text>STORE INFORMATION</Text>
           <Text style={styles.child}>
@@ -69,11 +55,6 @@ class About extends Component {
 }
 
 const styles = StyleSheet.create({
-  back: {
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   social: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -90,25 +71,6 @@ const styles = StyleSheet.create({
 
   child: {
     padding: 10,
-  },
-
-  about: {
-    padding: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 80,
-  },
-
-  screenName: {
-    fontWeight: 'bold',
-    fontSize: 25,
-    color: 'black',
-  },
-
-  topStyle: {
-    flexDirection: 'row',
-    height: 50,
-    backgroundColor: '#dcdde1',
   },
 });
 
