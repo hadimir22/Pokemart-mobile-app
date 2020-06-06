@@ -8,7 +8,15 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import {backgroundColorPrimary} from '../../constants';
+import {
+  backgroundColorPrimary,
+  fontColorPrimary,
+  tabIndicatorColor,
+} from '../../constants';
+import FeatherIcon from 'react-native-vector-icons/dist/Feather';
+import ProductCarousel from '../../common/carousel';
+import {iconColorPrimary} from '../../constants/index';
+import {from} from 'rxjs';
 
 export default class Home extends PureComponent {
   constructor(props) {
@@ -20,7 +28,40 @@ export default class Home extends PureComponent {
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scroller}>
-          <Text>heheheh</Text>
+          <ProductCarousel />
+          <View
+            style={{
+              backgroundColor: 'white',
+              paddingVertical: 50,
+              marginVertical: 20,
+              alignItems: 'center',
+            }}>
+            <View
+              style={{
+                backgroundColor: tabIndicatorColor,
+                paddingVertical: 20,
+                flexDirection: 'row',
+                width: '90%',
+                position: 'absolute',
+                bottom: -15,
+              }}>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <FeatherIcon name="gift" size={45} color={iconColorPrimary} />
+                <FeatherIcon
+                  name="activity"
+                  size={45}
+                  color={iconColorPrimary}
+                />
+                <FeatherIcon name="anchor" size={45} color={iconColorPrimary} />
+                <FeatherIcon
+                  name="codesandbox"
+                  size={45}
+                  color={iconColorPrimary}
+                />
+              </View>
+            </View>
+          </View>
         </ScrollView>
       </SafeAreaView>
     );

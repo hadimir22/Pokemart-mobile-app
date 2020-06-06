@@ -4,7 +4,7 @@ import {withNavigation} from 'react-navigation';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import {
   emptyIconColor,
-  fontPoppins,
+  fontPoppinsLight,
   colorBlack,
   colorWhite,
 } from '../../constants/index';
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     color: colorBlack,
     fontSize: 20,
-    fontFamily: fontPoppins,
+    fontFamily: fontPoppinsLight,
     textTransform: 'uppercase',
     textAlign: 'center',
   },

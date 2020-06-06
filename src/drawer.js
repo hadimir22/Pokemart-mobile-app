@@ -11,7 +11,7 @@ import {createAppContainer, NavigationActions} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Profile from './screens/profile';
 import Orders from './screens/orders';
-import NOtifications from './screens/notifications';
+import Notifications from './screens/notifications';
 import Logo from '../src/assets/logo.png';
 import Home from './screens/landing';
 import About from './screens/about';
@@ -26,7 +26,7 @@ import {
   drawerSectionTextColor,
   drawerTextColor,
   drawerHeaderColor,
-  fontPoppins,
+  fontPoppinsLight,
 } from './constants';
 
 class CustomDrawer extends Component {
@@ -54,11 +54,12 @@ class CustomDrawer extends Component {
             resizeMode="contain"
           /> */}
             <FeatherIcon name="user" size={50} color={drawerIconColor} />
-            <Text style={{fontFamily: fontPoppins}}>Hello, user</Text>
+            <Text style={{fontFamily: fontPoppinsLight}}>Hello, user</Text>
           </View>
 
           <View style={{paddingVertical: 15}}>
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('Home')}>
               <FeatherIcon name="home" size={25} color={drawerIconColor} />
@@ -66,6 +67,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('Shop')}>
               <FeatherIcon
@@ -79,6 +81,7 @@ class CustomDrawer extends Component {
             <Text style={styles.section}>Products</Text>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon
@@ -90,6 +93,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('Profile')}>
               <FeatherIcon name="user" size={25} color={drawerIconColor} />
@@ -97,6 +101,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('Orders')}>
               <FeatherIcon name="box" size={25} color={drawerIconColor} />
@@ -104,6 +109,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="heart" size={25} color={drawerIconColor} />
@@ -113,6 +119,7 @@ class CustomDrawer extends Component {
             <Text style={styles.section}>App preferences</Text>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="info" size={25} color={drawerIconColor} />
@@ -120,6 +127,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="settings" size={25} color={drawerIconColor} />
@@ -127,6 +135,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
 
             <TouchableOpacity
+              activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="log-out" size={25} color={drawerIconColor} />
@@ -138,7 +147,7 @@ class CustomDrawer extends Component {
             style={{
               textAlign: 'center',
               color: drawerTextColor,
-              fontFamily: fontPoppins,
+              fontFamily: fontPoppinsLight,
             }}>
             Made with <FeatherIcon name="heart" size={20} color="red" /> v1.0
           </Text>
@@ -156,14 +165,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   section: {
-    fontFamily: fontPoppins,
+    fontFamily: fontPoppinsLight,
     fontSize: 15,
     fontWeight: 'bold',
     padding: 13,
     color: drawerSectionTextColor,
   },
   text: {
-    fontFamily: fontPoppins,
+    fontFamily: fontPoppinsLight,
     marginLeft: 10,
     fontSize: 15,
     color: drawerTextColor,

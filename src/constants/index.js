@@ -1,21 +1,23 @@
-export const backgroundColorPrimary = '#F8F8FF';
+export const backgroundColorPrimary = '#DEE7EE';
 export const colorWhite = 'white';
-export const colorBlack = 'black';
+export const colorBlack = '#3B3A3A';
 export const colorFoam = 'white';
-export const iconColorPrimary = 'black';
+export const fontColorPrimary = '#2F334B';
+export const iconColorPrimary = '#615C5E';
 export const borderColorPrimary = 'black';
-export const fontPoppins = 'Poppins';
+export const fontPoppinsLight = 'Poppins-Light';
+export const fontPoppinsBold = 'Poppins-Bold';
 export const emptyIconColor = 'brown';
 
 //Tab constants
 export const tabBackgroundColor = 'white';
-export const tabIndicatorColor = 'teal';
+export const tabIndicatorColor = '#83C39A';
 export const tabLabelColor = 'red';
-export const tabIconColor = 'black';
+export const tabIconColor = '#615C5E';
 
 //Drawer constants
 export const drawerBackgroundColor = 'white';
-export const drawerTextColor = 'black';
+export const drawerTextColor = '#2F334B';
 export const drawerSectionTextColor = 'brown';
-export const drawerIconColor = 'brown';
+export const drawerIconColor = '#615C5E';
 export const drawerHeaderColor = 'white';

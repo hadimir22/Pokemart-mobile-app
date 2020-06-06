@@ -26,7 +26,7 @@ class Product extends Component {
         {/* <ProductCarousel /> */}
         <View style={styles.row}>
           <Text>$50000</Text>
-          <TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.7}>
             <EvilIcons name="cart" size={30} color="#0984e3" />
           </TouchableOpacity>
         </View>

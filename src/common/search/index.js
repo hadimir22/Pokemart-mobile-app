@@ -37,13 +37,16 @@ class Search extends Component {
         <View style={styles.main}>
           <View style={styles.menuBtn}>
             <TouchableOpacity
-              onPress={() => this.props.navigation.openDrawer()}>
+              onPress={() => this.props.navigation.openDrawer()}
+              activeOpacity={0.7}>
               <FeatherIcons name="list" size={25} color={colorBlack} />
             </TouchableOpacity>
           </View>
 
           <View>
-            <TouchableOpacity onPress={this.navigateToScreen('Profile')}>
+            <TouchableOpacity
+              onPress={this.navigateToScreen('Profile')}
+              activeOpacity={0.7}>
               <FeatherIcons name="user" size={25} color={colorBlack} />
             </TouchableOpacity>
           </View>
@@ -56,6 +59,7 @@ class Search extends Component {
             onChangeText={text => this.setState({searchTerm: text})}
           />
           <TouchableOpacity
+            activeOpacity={0.7}
             style={styles.searchBtn}
             onPress={() => this.handleSearch(this.state.searchTerm)}>
             <EvilIcons name="search" size={30} color={colorBlack} />

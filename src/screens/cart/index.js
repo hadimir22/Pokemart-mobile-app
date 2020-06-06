@@ -66,11 +66,15 @@ class Cart extends Component {
                   />
                   <Text>mac book pro</Text>
                   <View style={styles.center}>
-                    <TouchableOpacity style={{paddingHorizontal: 10}}>
+                    <TouchableOpacity
+                      style={{paddingHorizontal: 10}}
+                      activeOpacity={0.7}>
                       <FeatherIcon name="minus-square" size={25} />
                     </TouchableOpacity>
                     <Text style={{fontSize: 20}}>1</Text>
-                    <TouchableOpacity style={{paddingHorizontal: 10}}>
+                    <TouchableOpacity
+                      style={{paddingHorizontal: 10}}
+                      activeOpacity={0.7}>
                       <FeatherIcon name="plus-square" size={25} />
                     </TouchableOpacity>
                   </View>
@@ -89,11 +93,15 @@ class Cart extends Component {
                   />
                   <Text>one plus 7</Text>
                   <View style={styles.center}>
-                    <TouchableOpacity style={{paddingHorizontal: 10}}>
+                    <TouchableOpacity
+                      style={{paddingHorizontal: 10}}
+                      activeOpacity={0.7}>
                       <FeatherIcon name="minus-square" size={25} />
                     </TouchableOpacity>
                     <Text style={{fontSize: 20}}>1</Text>
-                    <TouchableOpacity style={{paddingHorizontal: 10}}>
+                    <TouchableOpacity
+                      style={{paddingHorizontal: 10}}
+                      activeOpacity={0.7}>
                       <FeatherIcon name="plus-square" size={25} />
                     </TouchableOpacity>
                   </View>
@@ -104,7 +112,7 @@ class Cart extends Component {
             <View style={[styles.center, styles.checkoutView]}>
               <Text style={[styles.checkoutTxt, {fontSize: 15}]}>2 Items</Text>
               <Text style={[styles.checkoutTxt, {fontSize: 20}]}>$580</Text>
-              <TouchableOpacity style={styles.checkoutBtn}>
+              <TouchableOpacity style={styles.checkoutBtn} activeOpacity={0.7}>
                 <Text style={{color: colorWhite}}>Checkout</Text>
               </TouchableOpacity>
             </View>

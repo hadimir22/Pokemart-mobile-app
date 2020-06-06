@@ -11,7 +11,6 @@ import {withNavigation} from 'react-navigation';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Search from '../../common/search';
 import axios from 'axios';
-import ProgressiveImage from '../../common/imagePlaceholder';
 
 class Shop extends Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class Shop extends Component {
           <ActivityIndicator size="large" />
         ) : (
           <>
-            <TouchableOpacity style={styles.catagories}>
+            <TouchableOpacity style={styles.catagories} activeOpacity={0.7}>
               <Icon name="filter" size={25} color="white" />
               <Text>Catagories</Text>
             </TouchableOpacity>
@@ -52,17 +51,11 @@ class Shop extends Component {
                 renderItem={({item}) => (
                   <>
                     <TouchableOpacity
-                      activeOpacity={1}
+                      activeOpacity={0.7}
                       style={styles.GridViewContainer}
                       key={item.id}
                       onPress={() => this.handleReaderselection(item)}>
-                      <ProgressiveImage
-                        source={{
-                          uri: item.files[0].path,
-                        }}
-                        resizeMode="contain"
-                        style={styles.img}
-                      />
+                      <Text>hi</Text>
                     </TouchableOpacity>
                     <Text>hee</Text>
                   </>

@@ -12,7 +12,7 @@ import {colorWhite} from '../../constants';
 const DATA = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    product: 'Mac Book ',
+    product: 'Mac Book  ',
     productQuant: '1 unit',
   },
   {
@@ -22,7 +22,7 @@ const DATA = [
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    product: 'Hero Go Pro  8',
+    product: 'Hero Go Pro',
     productQuant: '1 unit',
   },
   {
@@ -53,14 +53,23 @@ function Item({item}) {
         />
       </View>
       <View style={{paddingHorizontal: 30}}>
-        <Text style={[styles.title, {fontWeight: 'bold'}]}>{item.product}</Text>
+        <Text
+          numberOfLines={1}
+          ellipsizeMode="tail"
+          style={[styles.title, {fontWeight: 'bold'}]}>
+          {item.product}
+        </Text>
         <Text style={styles.title}>{item.productQuant}</Text>
       </View>
       <View style={{flexDirection: 'row'}}>
-        <TouchableOpacity style={[styles.action, {borderColor: 'red'}]}>
+        <TouchableOpacity
+          style={[styles.action, {borderColor: 'red'}]}
+          activeOpacity={0.7}>
           <Text>Manage </Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.action, {borderColor: 'green'}]}>
+        <TouchableOpacity
+          style={[styles.action, {borderColor: 'green'}]}
+          activeOpacity={0.7}>
           <Text> Status</Text>
         </TouchableOpacity>
       </View>
@@ -112,6 +121,7 @@ const styles = StyleSheet.create({
     padding: 20,
     elevation: 5,
     marginBottom: 20,
+    marginHorizontal: 10,
   },
 });
 

@@ -58,7 +58,7 @@ class Profile extends Component {
                   </Text>
                 </View>
               </View>
-              <TouchableOpacity>
+              <TouchableOpacity activeOpacity={0.7}>
                 <FeatherIcons name="edit" size={25} color={iconColorPrimary} />
               </TouchableOpacity>
             </View>
@@ -106,6 +106,7 @@ class Profile extends Component {
           </View>
 
           <TouchableOpacity
+            activeOpacity={0.7}
             style={[styles.actions, {backgroundColor: 'green'}]}>
             <Text style={{color: 'white', textAlign: 'center'}}>
               Change Password
@@ -113,6 +114,7 @@ class Profile extends Component {
           </TouchableOpacity>
 
           <TouchableOpacity
+            activeOpacity={0.7}
             style={[styles.actions, {backgroundColor: 'brown'}]}>
             <Text style={{color: 'white', textAlign: 'center'}}>
               Delete Account

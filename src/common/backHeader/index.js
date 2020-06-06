@@ -19,7 +19,9 @@ class Back extends Component {
   render() {
     return (
       <View style={styles.main}>
-        <TouchableOpacity onPress={() => this.navigateToScreen()}>
+        <TouchableOpacity
+          onPress={() => this.navigateToScreen()}
+          activeOpacity={0.7}>
           <FeatherIcons
             name="chevron-left"
             size={30}
