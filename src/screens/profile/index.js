@@ -104,22 +104,6 @@ class Profile extends Component {
               </View>
             </View>
           </View>
-
-          <TouchableOpacity
-            activeOpacity={0.7}
-            style={[styles.actions, {backgroundColor: 'green'}]}>
-            <Text style={{color: 'white', textAlign: 'center'}}>
-              Change Password
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            activeOpacity={0.7}
-            style={[styles.actions, {backgroundColor: 'brown'}]}>
-            <Text style={{color: 'white', textAlign: 'center'}}>
-              Delete Account
-            </Text>
-          </TouchableOpacity>
         </ScrollView>
       </View>
     );

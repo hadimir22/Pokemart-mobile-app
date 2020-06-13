@@ -110,14 +110,6 @@ class CustomDrawer extends Component {
               activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
-              <FeatherIcon name="settings" size={25} color={drawerIconColor} />
-              <Text style={styles.text}>Setting</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={styles.btn}
-              onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="info" size={25} color={drawerIconColor} />
               <Text style={styles.text}>About</Text>
             </TouchableOpacity>
