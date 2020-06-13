@@ -14,6 +14,7 @@ class Back extends Component {
       routeName: 'MainTab',
     });
     this.props.navigation.dispatch(navigateAction);
+    alert('back okay');
   };
 
   render() {

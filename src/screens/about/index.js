@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 import {withNavigation} from 'react-navigation';
+import Icons from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
+import Back from '../../common/backHeader';
 
 class About extends Component {
   constructor(props) {
@@ -11,42 +13,33 @@ class About extends Component {
     };
   }
 
-  socialMediaNavigation(link) {
-    alert('navigating to', link);
-  }
   render() {
     return (
       <View style={styles.main}>
+        <Back screenName="About" />
         <View style={styles.storeInfo}>
-          <Text>STORE INFORMATION</Text>
           <Text style={styles.child}>
-            <Icon name="phone" size={25} color="black" /> 9596555222
-          </Text>
-          <Text style={styles.child}>
-            <Icon name="envelope-o" size={25} color="black" /> hello@hi.com
-          </Text>
-          <Text style={styles.child}>
-            <Icon name="location-arrow" size={25} color="black" />
-            C-50,sector-65, Noida 201301
+            This is a dummy e-commerce app where you can buy Pokemons if your
+            imagination is strong enough{' '}
+            <Icons name="grin-tongue-wink" size={25} color="brown" />
           </Text>
         </View>
-
-        <Text>Social Media</Text>
-        <View style={styles.social}>
+        <View style={styles.storeInfo}>
           <Text style={styles.child}>
-            <Icon name="facebook-official" size={25} color="black" />
+            Dont forget to give us 5 <Icon name="star" color="yellow" /> on Play
+            store
           </Text>
-          <Text style={styles.child}>
-            <Icon name="instagram" size={25} color="black" />
-          </Text>
-          <Text style={styles.child}>
-            <Icon name="linkedin" size={25} color="black" />
-          </Text>
-          <Text style={styles.child}>
-            <Icon name="twitter" size={25} color="black" />
-          </Text>
-          <Text style={styles.child}>
-            <Icon name="youtube" size={25} color="black" />
+        </View>
+        <View style={styles.storeInfo}>
+          <Text
+            style={{
+              textAlign: 'center',
+              paddingVertical: 30,
+              fontWeight: '700',
+              color: 'tomato',
+              fontSize: 25,
+            }}>
+            Have fun!!
           </Text>
         </View>
       </View>

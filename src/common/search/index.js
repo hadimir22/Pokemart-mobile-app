@@ -59,7 +59,7 @@ class Search extends Component {
           <TextInput
             value={this.state.searchTerm}
             style={styles.inputBox}
-            placeholder="Search"
+            placeholder="Find your pokemon"
             onChangeText={text => this.setState({searchTerm: text})}
           />
           <TouchableOpacity
