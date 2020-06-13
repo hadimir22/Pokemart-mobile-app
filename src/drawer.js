@@ -54,7 +54,7 @@ class CustomDrawer extends Component {
             resizeMode="contain"
           /> */}
             <FeatherIcon name="user" size={50} color={drawerIconColor} />
-            <Text style={{fontFamily: fontPoppinsLight}}>Hello, user</Text>
+            <Text style={{fontFamily: fontPoppinsLight}}>Hello, champ</Text>
           </View>
 
           <View style={{paddingVertical: 15}}>
@@ -64,18 +64,6 @@ class CustomDrawer extends Component {
               onPress={this.navigateToScreen('Home')}>
               <FeatherIcon name="home" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Home</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={styles.btn}
-              onPress={this.navigateToScreen('Shop')}>
-              <FeatherIcon
-                name="shopping-bag"
-                size={25}
-                color={drawerIconColor}
-              />
-              <Text style={styles.text}>Shop</Text>
             </TouchableOpacity>
 
             <Text style={styles.section}>Products</Text>
@@ -122,14 +110,6 @@ class CustomDrawer extends Component {
               activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
-              <FeatherIcon name="info" size={25} color={drawerIconColor} />
-              <Text style={styles.text}>About</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={styles.btn}
-              onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="settings" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Setting</Text>
             </TouchableOpacity>
@@ -138,8 +118,8 @@ class CustomDrawer extends Component {
               activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('About')}>
-              <FeatherIcon name="log-out" size={25} color={drawerIconColor} />
-              <Text style={styles.text}>Logout</Text>
+              <FeatherIcon name="info" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>About</Text>
             </TouchableOpacity>
           </View>
 

@@ -44,6 +44,10 @@ class Search extends Component {
           </View>
 
           <View>
+            <Text style={{fontWeight: '700', color: 'tomato'}}>Pokemart</Text>
+          </View>
+
+          <View>
             <TouchableOpacity
               onPress={this.navigateToScreen('Profile')}
               activeOpacity={0.7}>
