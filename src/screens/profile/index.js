@@ -31,7 +31,7 @@ class Profile extends Component {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.userInfo}>
             <Image
-              source={require('../../assets/logo.png')}
+              source={require('../../assets/images/userImg.png')}
               style={styles.userImage}
               resizeMode="contain"
             />
@@ -41,7 +41,7 @@ class Profile extends Component {
                 paddingVertical: 20,
                 fontWeight: 'bold',
               }}>
-              Halsey Mir
+              Ash Ketchum
             </Text>
           </View>
           <View style={styles.userSetting}>
@@ -49,18 +49,20 @@ class Profile extends Component {
               <View>
                 <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <FeatherIcons
-                    name="settings"
+                    name="info"
                     size={25}
                     color={iconColorPrimary}
                   />
-                  <Text style={{paddingLeft: 10, fontWeight: 'bold'}}>
-                    User Settings
+                  <Text
+                    style={{
+                      paddingLeft: 10,
+                      fontWeight: 'bold',
+                      color: 'brown',
+                    }}>
+                    User Info
                   </Text>
                 </View>
               </View>
-              <TouchableOpacity activeOpacity={0.7}>
-                <FeatherIcons name="edit" size={25} color={iconColorPrimary} />
-              </TouchableOpacity>
             </View>
             <View>
               <View style={styles.settingHead}>
@@ -74,7 +76,7 @@ class Profile extends Component {
                     <Text style={{paddingLeft: 10}}>Name</Text>
                   </View>
                 </View>
-                <Text>Helsey</Text>
+                <Text>Ash Ketchum</Text>
               </View>
               <View style={styles.settingHead}>
                 <View>
@@ -87,7 +89,7 @@ class Profile extends Component {
                     <Text style={{paddingLeft: 10}}>Email</Text>
                   </View>
                 </View>
-                <Text>helsey.mir@gmail.com</Text>
+                <Text>ash.kechum@pokemaster.com</Text>
               </View>
               <View style={styles.settingHead}>
                 <View>
@@ -100,7 +102,7 @@ class Profile extends Component {
                     <Text style={{paddingLeft: 10}}>Address</Text>
                   </View>
                 </View>
-                <Text>nowpora khanyar kashmir</Text>
+                <Text>Pallet Town</Text>
               </View>
             </View>
           </View>

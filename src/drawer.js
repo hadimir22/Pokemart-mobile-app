@@ -12,7 +12,6 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import Profile from './screens/profile';
 import Orders from './screens/orders';
 import Notifications from './screens/notifications';
-import Logo from '../src/assets/logo.png';
 import Home from './screens/landing';
 import About from './screens/about';
 import Product from './screens/product';
@@ -48,13 +47,20 @@ class CustomDrawer extends Component {
       <View style={{flex: 1, backgroundColor: drawerBackgroundColor}}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.logo}>
-            {/* <Image
-            source={Logo}
-            style={{height: 100, width: 100}}
-            resizeMode="contain"
-          /> */}
-            <FeatherIcon name="user" size={50} color={drawerIconColor} />
-            <Text style={{fontFamily: fontPoppinsLight}}>Hello, champ</Text>
+            <Image
+              source={require('./assets/images/userImg.png')}
+              style={{height: 100, width: 100}}
+              resizeMode="contain"
+            />
+            <Text
+              style={{
+                fontFamily: fontPoppinsLight,
+                marginTop: 10,
+                fontWeight: '500',
+                color: 'tomato',
+              }}>
+              Hello, Ash
+            </Text>
           </View>
 
           <View style={{paddingVertical: 15}}>
@@ -121,7 +127,16 @@ class CustomDrawer extends Component {
               color: drawerTextColor,
               fontFamily: fontPoppinsLight,
             }}>
-            Made with <FeatherIcon name="heart" size={20} color="red" /> v1.0
+            Made with{' '}
+            <Image
+              source={require('./assets/images/pokeball.png')}
+              style={{
+                height: 20,
+                width: 20,
+              }}
+              resizeMode="contain"
+            />{' '}
+            v 1.0
           </Text>
         </ScrollView>
       </View>

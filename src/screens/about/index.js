@@ -19,7 +19,7 @@ class About extends Component {
         <Back screenName="About" />
         <View style={styles.storeInfo}>
           <Text style={styles.child}>
-            This is a dummy e-commerce app where you can buy Pokemons if your
+            This is a dummy e-commerce app where you can buy Pokémon if your
             imagination is strong enough{' '}
             <Icons name="grin-tongue-wink" size={25} color="brown" />
           </Text>

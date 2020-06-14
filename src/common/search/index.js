@@ -44,7 +44,7 @@ class Search extends Component {
           </View>
 
           <View>
-            <Text style={{fontWeight: '700', color: 'tomato'}}>Pokemart</Text>
+            <Text style={{fontWeight: '700', color: 'tomato'}}>Pokémart</Text>
           </View>
 
           <View>
@@ -59,7 +59,7 @@ class Search extends Component {
           <TextInput
             value={this.state.searchTerm}
             style={styles.inputBox}
-            placeholder="Find your pokemon"
+            placeholder="Find your Pokémon"
             onChangeText={text => this.setState({searchTerm: text})}
           />
           <TouchableOpacity
