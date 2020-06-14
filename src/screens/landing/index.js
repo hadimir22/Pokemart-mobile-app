@@ -25,60 +25,60 @@ const pokemon = [
     id: 1,
     name: 'Pikachu',
     star: 5,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 2,
     name: 'One Plus',
     star: 5,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 3,
     name: 'Hero Go Pro',
     star: 2,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 4,
     name: 'Backpack',
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 5,
     name: 'Backpack',
     star: 1,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 6,
     name: 'Backpack',
     star: 4,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 7,
     name: 'Mac Book',
     star: 3,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 8,
     name: 'One Plus',
     star: 5,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 9,
     name: 'Hero Go Pro',
     star: 5,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
   {
     id: 10,
     name: 'Backpack',
     star: 5,
-    image: '../../assets/pokemons/pokeball.png',
+    image: require('../../assets/pokemons/pokeball.png'),
   },
 ];
 
@@ -96,9 +96,10 @@ class Product extends React.Component {
           alignItems: 'center',
           justifyContent: 'center',
           padding: 20,
+          borderRadius: 15,
         }}>
         <Image
-          source={require('../../assets/pokemons/pokeball.png')}
+          source={this.props.pokemon.image}
           style={{height: 50, width: 50}}
         />
         <Text>{this.props.pokemon.name}</Text>
