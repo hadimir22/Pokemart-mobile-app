@@ -2,7 +2,7 @@ export const pokemons = [
   {
     id: 1,
     name: 'Pikachu',
-    img: require('../assets/pokemons/pokeball.png'),
+    image: require('../assets/pokemons/pikachu.jpg'),
     type: 'Electric',
     weight: 40,
     star: 5,
@@ -10,7 +10,7 @@ export const pokemons = [
   {
     id: 2,
     name: 'Charizad',
-    img: require('../assets/pokemons/pokeball.png'),
+    image: require('../assets/pokemons/pokeball.png'),
     type: 'Electric',
     weight: 40,
     star: 4,
@@ -18,8 +18,16 @@ export const pokemons = [
   {
     id: 3,
     name: 'Bulbasor',
-    img: require('../assets/pokemons/pokeball.png'),
-    type: 'Electric',
+    image: require('../assets/pokemons/pokeball.png'),
+    type: 'Grass',
+    weight: 40,
+    star: 3,
+  },
+  {
+    id: 3,
+    name: 'Squirtle',
+    image: require('../assets/pokemons/pokeball.png'),
+    type: 'Water',
     weight: 40,
     star: 3,
   },

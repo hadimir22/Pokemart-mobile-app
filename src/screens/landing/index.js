@@ -19,68 +19,7 @@ import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import ProductCarousel from '../../common/carousel';
 import {iconColorPrimary} from '../../constants/index';
 import StarRatingComponent from '../../common/starRating';
-
-const pokemon = [
-  {
-    id: 1,
-    name: 'Pikachu',
-    star: 5,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 2,
-    name: 'One Plus',
-    star: 5,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 3,
-    name: 'Hero Go Pro',
-    star: 2,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 4,
-    name: 'Backpack',
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 5,
-    name: 'Backpack',
-    star: 1,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 6,
-    name: 'Backpack',
-    star: 4,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 7,
-    name: 'Mac Book',
-    star: 3,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 8,
-    name: 'One Plus',
-    star: 5,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 9,
-    name: 'Hero Go Pro',
-    star: 5,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-  {
-    id: 10,
-    name: 'Backpack',
-    star: 5,
-    image: require('../../assets/pokemons/pokeball.png'),
-  },
-];
+import {pokemons} from '../../constants/pokemons';
 
 class Product extends React.Component {
   constructor(props) {
@@ -90,7 +29,7 @@ class Product extends React.Component {
     return (
       <View
         style={{
-          backgroundColor: 'grey',
+          backgroundColor: 'white',
           margin: 2,
           flex: 0.5,
           alignItems: 'center',
@@ -179,7 +118,7 @@ export default class Home extends PureComponent {
           </View>
           <FlatList
             showsVerticalScrollIndicator={false}
-            data={pokemon}
+            data={pokemons}
             renderItem={({item}) => <Product pokemon={item} />}
             keyExtractor={item => item.id}
             numColumns={2}
