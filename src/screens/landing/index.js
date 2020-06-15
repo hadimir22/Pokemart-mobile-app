@@ -30,7 +30,7 @@ class Product extends React.Component {
       <View
         style={{
           backgroundColor: 'white',
-          margin: 2,
+          margin: 5,
           flex: 0.5,
           alignItems: 'center',
           justifyContent: 'center',
@@ -117,6 +117,7 @@ export default class Home extends PureComponent {
             </View>
           </View>
           <FlatList
+            style={{marginVertical: 20}}
             showsVerticalScrollIndicator={false}
             data={pokemons}
             renderItem={({item}) => <Product pokemon={item} />}

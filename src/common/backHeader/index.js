@@ -9,26 +9,9 @@ class Back extends Component {
     super(props);
   }
 
-  navigateToScreen = route => () => {
-    const navigateAction = NavigationActions.navigate({
-      routeName: 'MainTab',
-    });
-    this.props.navigation.dispatch(navigateAction);
-    alert('back okay');
-  };
-
   render() {
     return (
       <View style={styles.main}>
-        <TouchableOpacity
-          onPress={() => this.navigateToScreen()}
-          activeOpacity={0.7}>
-          <FeatherIcons
-            name="chevron-left"
-            size={30}
-            color={iconColorPrimary}
-          />
-        </TouchableOpacity>
         <Text style={styles.screenName}>{this.props.screenName}</Text>
       </View>
     );
@@ -39,10 +22,11 @@ const styles = StyleSheet.create({
   main: {
     paddingVertical: 15,
     flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   screenName: {
     paddingVertical: 9,
-    paddingLeft: 50,
     fontSize: 15,
     fontWeight: 'bold',
   },
