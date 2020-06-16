@@ -2,36 +2,15 @@ import React, {PureComponent} from 'react';
 import {Text, Image, Dimensions, StyleSheet, View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 
-export const entries = [
+export const carouselData = [
   {
     title: 'Beautiful and dramatic Antelope Canyon',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/UYiroysl.jpg',
   },
   {
     title: 'Earlier this morning, NYC',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/UPrs1EWl.jpg',
   },
   {
     title: 'White Pocket Sunset',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat ',
-    illustration: 'https://i.imgur.com/MABUbpDl.jpg',
-  },
-  {
-    title: 'Acrocorinth, Greece',
-    subtitle: 'Lorem ipsum dolor sit amet et nuncat mergitur',
-    illustration: 'https://i.imgur.com/KZsmUi2l.jpg',
-  },
-  {
-    title: 'The lone tree, majestic landscape of New Zealand',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/2nCt3Sbl.jpg',
-  },
-  {
-    title: 'Middle Earth, Germany',
-    subtitle: 'Lorem ipsum dolor sit amet',
-    illustration: 'https://i.imgur.com/lceHsT6l.jpg',
   },
 ];
 
@@ -43,7 +22,7 @@ class ProductCarousel extends PureComponent {
   _renderItemWithParallax({item, index}, parallaxProps) {
     return (
       <View style={{paddingVertical: 100, backgroundColor: 'teal'}}>
-        <Text>heheheh</Text>
+        <Text>{item.title}</Text>
       </View>
     );
   }
@@ -52,8 +31,8 @@ class ProductCarousel extends PureComponent {
       <View style={styles.container}>
         <Carousel
           ref={c => (this._slider1Ref = c)}
-          data={entries}
-          renderItem={this._renderItemWithParallax}
+          data={carouselData}
+          renderItem={item => this._renderItemWithParallax(item)}
           sliderWidth={500}
           itemWidth={500}
           hasParallaxImages={true}
