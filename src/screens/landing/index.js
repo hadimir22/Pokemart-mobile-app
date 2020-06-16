@@ -27,16 +27,7 @@ class Product extends React.Component {
   }
   render() {
     return (
-      <View
-        style={{
-          backgroundColor: 'white',
-          margin: 5,
-          flex: 0.5,
-          alignItems: 'center',
-          justifyContent: 'center',
-          padding: 20,
-          borderRadius: 15,
-        }}>
+      <View style={styles.product}>
         <Image
           source={this.props.pokemon.image}
           style={{height: 50, width: 50}}
@@ -146,5 +137,14 @@ const styles = StyleSheet.create({
     padding: 5,
     borderRadius: 5,
     marginLeft: 5,
+  },
+  product: {
+    backgroundColor: 'white',
+    margin: 5,
+    flex: 0.5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 20,
+    borderRadius: 15,
   },
 });
