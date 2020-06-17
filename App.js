@@ -20,13 +20,17 @@ class App extends Component {
   }
 
   render() {
-    return this.state.showSplash ? (
-      <View style={{flex: 1}}>
+    return (
+      <>
         <StatusBar hidden={true} />
-        <Image source={Splash} style={style.splash} resizeMode="stretch" />
-      </View>
-    ) : (
-      <StackNav />
+        {this.state.showSplash ? (
+          <View style={{flex: 1}}>
+            <Image source={Splash} style={style.splash} resizeMode="stretch" />
+          </View>
+        ) : (
+          <StackNav />
+        )}
+      </>
     );
   }
 }
