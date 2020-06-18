@@ -15,6 +15,8 @@ import Swipeout from 'react-native-swipeout';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import {colorWhite} from '../../constants';
 import {ScrollView} from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-community/async-storage';
+import {pokemons} from '../../constants/pokemons';
 
 var swipeoutBtns = [
   {
@@ -39,16 +41,36 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Cartdata: null,
+      cartdata: null,
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    this.getCartItems();
+  }
 
+  getData = async () => {
+    try {
+      const jsonValue = await AsyncStorage.getItem('cart');
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      // error reading value
+      console.log(e);
+    }
+  };
+
+  getCartItems = async () => {
+    let items = await this.getData();
+    console.log('cat items', items);
+    let filterdPokemons = pokemons.filter(pokemon => {
+      if (items.includes(pokemon.id)) return true;
+    });
+    this.setState({cartdata: filterdPokemons});
+  };
   render() {
     return (
       <View style={{flex: 1}}>
-        {this.state.Cartdata ? (
+        {this.state.cartdata ? (
           <Empty icon="shopping-cart" text="your cart is empty" />
         ) : (
           <View style={{flex: 1}}>

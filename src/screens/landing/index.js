@@ -47,8 +47,10 @@ class Product extends React.Component {
       let existing = await this.getData('cart');
 
       if (existing) {
-        console.log(existing);
-
+        console.log('ko', existing);
+        if (existing.includes(id)) {
+          return ToastAndroid.show('Already in cart', ToastAndroid.SHORT);
+        }
         let newArr = [...existing, id];
         const value = JSON.stringify(newArr);
         await AsyncStorage.setItem('cart', value);
@@ -70,7 +72,7 @@ class Product extends React.Component {
 
       if (existing) {
         console.log(existing);
-        if (id in existing) {
+        if (existing.includes(id)) {
           return ToastAndroid.show('Already in favorites', ToastAndroid.SHORT);
         }
         let newArr = [...existing, id];
