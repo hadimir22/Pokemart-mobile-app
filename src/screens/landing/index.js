@@ -9,6 +9,7 @@ import {
   ScrollView,
   TouchableOpacity,
   FlatList,
+  ToastAndroid,
 } from 'react-native';
 import {
   backgroundColorPrimary,
@@ -20,11 +21,72 @@ import ProductCarousel from '../../common/carousel';
 import {iconColorPrimary} from '../../constants/index';
 import StarRatingComponent from '../../common/starRating';
 import {pokemons} from '../../constants/pokemons';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class Product extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  getData = async key => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(key);
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      // error reading value
+      console.log(e);
+    }
+  };
+
+  addToCart = async id => {
+    console.log('ok', id);
+    const keys = await AsyncStorage.getAllKeys();
+    const result = await AsyncStorage.multiGet(keys);
+    console.log(result);
+    try {
+      let existing = await this.getData('cart');
+
+      if (existing) {
+        console.log(existing);
+
+        let newArr = [...existing, id];
+        const value = JSON.stringify(newArr);
+        await AsyncStorage.setItem('cart', value);
+      } else {
+        let ids = [id];
+        const value = JSON.stringify(ids);
+        await AsyncStorage.setItem('cart', value);
+      }
+      ToastAndroid.show('Added to cart', ToastAndroid.SHORT);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  addToFavorites = async id => {
+    console.log('ok', id);
+    try {
+      let existing = await this.getData('fav');
+
+      if (existing) {
+        console.log(existing);
+        if (id in existing) {
+          return ToastAndroid.show('Already in favorites', ToastAndroid.SHORT);
+        }
+        let newArr = [...existing, id];
+        const value = JSON.stringify(newArr);
+        await AsyncStorage.setItem('fav', value);
+      } else {
+        let ids = [id];
+        const value = JSON.stringify(ids);
+        await AsyncStorage.setItem('fav', value);
+      }
+      ToastAndroid.show('Added to favorites', ToastAndroid.SHORT);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   render() {
     return (
       <View style={styles.product}>
@@ -42,11 +104,13 @@ class Product extends React.Component {
 
         <View style={{flexDirection: 'row', marginTop: 8}}>
           <TouchableOpacity
+            onPress={() => this.addToCart(this.props.pokemon.id)}
             style={[styles.action, {borderColor: 'green'}]}
             activeOpacity={0.7}>
             <FeatherIcon name="shopping-cart" size={25} color="green" />
           </TouchableOpacity>
           <TouchableOpacity
+            onPress={() => this.addToFavorites(this.props.pokemon.id)}
             style={[styles.action, {borderColor: 'red'}]}
             activeOpacity={0.7}>
             <FeatherIcon name="heart" size={25} color="red" />
