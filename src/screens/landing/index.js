@@ -141,16 +141,7 @@ export default class Home extends PureComponent {
               marginVertical: 20,
               alignItems: 'center',
             }}>
-            <View
-              style={{
-                backgroundColor: tabIndicatorColor,
-                paddingVertical: 20,
-                flexDirection: 'row',
-                width: '90%',
-                borderRadius: 15,
-                position: 'absolute',
-                bottom: -15,
-              }}>
+            <View style={styles.quick2}>
               <View
                 style={{
                   flexDirection: 'row',
@@ -212,5 +203,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     borderRadius: 15,
+  },
+  quick2: {
+    backgroundColor: tabIndicatorColor,
+    paddingVertical: 20,
+    flexDirection: 'row',
+    width: '90%',
+    borderRadius: 15,
+    position: 'absolute',
+    bottom: -15,
   },
 });
