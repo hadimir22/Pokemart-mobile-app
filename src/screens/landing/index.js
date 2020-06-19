@@ -134,13 +134,7 @@ export default class Home extends PureComponent {
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scroller}>
           <ProductCarousel />
-          <View
-            style={{
-              backgroundColor: 'white',
-              paddingVertical: 50,
-              marginVertical: 20,
-              alignItems: 'center',
-            }}>
+          <View style={styles.quick1}>
             <View style={styles.quick2}>
               <View
                 style={{
@@ -203,6 +197,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20,
     borderRadius: 15,
+  },
+  quick1: {
+    backgroundColor: 'white',
+    paddingVertical: 50,
+    marginVertical: 20,
+    alignItems: 'center',
   },
   quick2: {
     backgroundColor: tabIndicatorColor,
