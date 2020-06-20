@@ -136,13 +136,7 @@ export default class Home extends PureComponent {
           <ProductCarousel />
           <View style={styles.quick1}>
             <View style={styles.quick2}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  flex: 1,
-                  justifyContent: 'space-between',
-                  paddingHorizontal: 10,
-                }}>
+              <View style={styles.quick3}>
                 <FeatherIcon name="gift" size={45} color={iconColorPrimary} />
                 <FeatherIcon
                   name="activity"
@@ -212,5 +206,11 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     position: 'absolute',
     bottom: -15,
+  },
+  quick3: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
   },
 });
