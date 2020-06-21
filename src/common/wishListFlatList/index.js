@@ -11,71 +11,19 @@ import {colorWhite} from '../../constants';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import StarRatingComponent from '../starRating';
 
-const DATA = [
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    product: 'Mac Book ',
-    productQuant: '1 unit',
-    stars: 5,
-  },
-  {
-    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    product: 'One Plus',
-    productQuant: '2 units',
-    stars: 2,
-  },
-  {
-    id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    product: 'Hero Go Pro  8',
-    productQuant: '1 unit',
-    stars: 4,
-  },
-  {
-    id: 'bd7acbea-c1b1-46c2-aed5-3ad535abb28ba',
-    product: 'Backpack',
-    productQuant: '5 units',
-    stars: 3,
-  },
-  {
-    id: '58694sa0f-3da1-471f-bd96-145571e29d72',
-    product: 'Hero Go Pro  8',
-    productQuant: '1 unit',
-    stars: 5,
-  },
-  {
-    id: 'bd7acbesa-c1b1-46c2-aed5-3ad535abb28ba',
-    product: 'Backpack',
-    productQuant: '5 units',
-    stars: 5,
-  },
-  {
-    id: 'bd7acbea-c1b1-461c2-aed5-3ad535abb28ba',
-    product: 'Backpack',
-    productQuant: '1 units',
-    stars: 2,
-  },
-  {
-    id: 'bd7acbea-c1b1-46c22-aed5-3ad535abb28ba',
-    product: 'Backpack',
-    productQuant: '2 units',
-    stars: 5,
-  },
-];
-
 function Item({item}) {
   return (
     <View style={styles.info}>
       <View>
         <Image
-          source={require('../../assets/images/mac.jpeg')}
+          source={item.image}
           style={{height: 70, width: 70}}
           resizeMode="contain"
         />
       </View>
       <View style={{paddingHorizontal: 30}}>
-        <Text style={[styles.title, {fontWeight: 'bold'}]}>{item.product}</Text>
-        <Text style={styles.title}>{item.productQuant}</Text>
-        <StarRatingComponent rating={item.stars} disabled={true} />
+        <Text style={[styles.title, {fontWeight: 'bold'}]}>{item.name}</Text>
+        <StarRatingComponent rating={item.star} disabled={true} />
       </View>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
@@ -96,17 +44,13 @@ function Item({item}) {
 class WishListFlatListComponent extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      data: this.props.tabData,
-    };
   }
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={DATA}
+          data={this.props.favorites}
           renderItem={({item}) => <Item item={item} />}
           keyExtractor={item => item.id}
         />
