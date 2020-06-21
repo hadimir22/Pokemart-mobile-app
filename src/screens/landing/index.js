@@ -18,7 +18,11 @@ import {
 } from '../../constants';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import ProductCarousel from '../../common/carousel';
-import {iconColorPrimary} from '../../constants/index';
+import {
+  iconColorPrimary,
+  fontPoppinsLight,
+  fontPoppinsBold,
+} from '../../constants/index';
 import StarRatingComponent from '../../common/starRating';
 import {pokemons} from '../../constants/pokemons';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -95,8 +99,11 @@ class Product extends React.Component {
         <Image
           source={this.props.pokemon.image}
           style={{height: 50, width: 50}}
+          resizeMode="contain"
         />
-        <Text>{this.props.pokemon.name}</Text>
+        <Text style={{fontFamily: fontPoppinsLight}}>
+          {this.props.pokemon.name}
+        </Text>
         <View style={{marginVertical: 3}}>
           <StarRatingComponent
             rating={this.props.pokemon.star}
@@ -134,7 +141,7 @@ export default class Home extends PureComponent {
       <SafeAreaView style={styles.container}>
         <ScrollView contentContainerStyle={styles.scroller}>
           <ProductCarousel />
-          <View style={styles.quick1}>
+          {/* <View style={styles.quick1}>
             <View style={styles.quick2}>
               <View style={styles.quick3}>
                 <FeatherIcon name="gift" size={45} color={iconColorPrimary} />
@@ -151,6 +158,15 @@ export default class Home extends PureComponent {
                 />
               </View>
             </View>
+          </View> */}
+          <View
+            style={{
+              paddingVertical: 10,
+              marginTop: 10,
+            }}>
+            <Text style={{textAlign: 'center', fontFamily: fontPoppinsBold}}>
+              Choose your favorite
+            </Text>
           </View>
           <FlatList
             style={{marginVertical: 20}}
