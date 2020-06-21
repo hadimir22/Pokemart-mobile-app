@@ -24,7 +24,7 @@ export const pokemons = [
     star: 3,
   },
   {
-    id: 3,
+    id: 4,
     name: 'Squirtle',
     image: require('../assets/pokemons/squrtle2.png'),
     type: 'Water',
