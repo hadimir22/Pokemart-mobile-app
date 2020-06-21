@@ -6,12 +6,15 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
+  ToastAndroid,
 } from 'react-native';
 import {colorWhite} from '../../constants';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import StarRatingComponent from '../starRating';
+import AsyncStorage from '@react-native-community/async-storage';
+import {pokemons} from '../../constants/pokemons';
 
-function Item({item}) {
+function Item({item, addToCart, removeFromFav}) {
   return (
     <View style={styles.info}>
       <View>
@@ -27,11 +30,13 @@ function Item({item}) {
       </View>
       <View style={{flexDirection: 'row'}}>
         <TouchableOpacity
+          onPress={() => addToCart(item.id)}
           style={[styles.action, {borderColor: 'green'}]}
           activeOpacity={0.7}>
           <FeatherIcon name="shopping-cart" size={20} color="green" />
         </TouchableOpacity>
         <TouchableOpacity
+          onPress={() => removeFromFav(item.id)}
           style={[styles.action, {borderColor: 'red'}]}
           activeOpacity={0.7}>
           <FeatherIcon name="trash" size={20} color="red" />
@@ -44,14 +49,84 @@ function Item({item}) {
 class WishListFlatListComponent extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      loading: false,
+      favorites: null,
+    };
   }
+
+  componentDidMount() {
+    this.getFavItems();
+  }
+
+  getData = async key => {
+    try {
+      const jsonValue = await AsyncStorage.getItem(key);
+      return jsonValue != null ? JSON.parse(jsonValue) : null;
+    } catch (e) {
+      // error reading value
+      console.log(e);
+    }
+  };
+
+  addToCart = async id => {
+    try {
+      let existing = await this.getData('cart');
+
+      if (existing) {
+        if (existing.includes(id)) {
+          return ToastAndroid.show('Already in cart', ToastAndroid.SHORT);
+        }
+        let newArr = [...existing, id];
+        const value = JSON.stringify(newArr);
+        await AsyncStorage.setItem('cart', value);
+      } else {
+        let ids = [id];
+        const value = JSON.stringify(ids);
+        await AsyncStorage.setItem('cart', value);
+      }
+      ToastAndroid.show('Added to cart', ToastAndroid.SHORT);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
+  getFavItems = async () => {
+    let items = await this.getData('fav');
+    let filterdPokemons = pokemons.filter(pokemon => {
+      if (items.includes(pokemon.id)) return true;
+    });
+    this.setState({favorites: filterdPokemons});
+  };
+
+  removeFromFav = async id => {
+    try {
+      let existing = await this.getData('fav');
+      let filterdIds = existing.filter(item => {
+        return item != id;
+      });
+      await AsyncStorage.setItem('fav', JSON.stringify(filterdIds));
+      ToastAndroid.show('Removed', ToastAndroid.SHORT);
+      this.getFavItems();
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           showsVerticalScrollIndicator={false}
-          data={this.props.favorites}
-          renderItem={({item}) => <Item item={item} />}
+          data={this.state.favorites}
+          renderItem={({item}) => (
+            <Item
+              item={item}
+              addToCart={this.addToCart}
+              removeFromFav={this.removeFromFav}
+            />
+          )}
           keyExtractor={item => item.id}
         />
       </View>

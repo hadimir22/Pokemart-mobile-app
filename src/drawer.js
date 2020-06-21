@@ -10,7 +10,6 @@ import {
 import {createAppContainer, NavigationActions} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Profile from './screens/profile';
-import Orders from './screens/orders';
 import Notifications from './screens/notifications';
 import Home from './screens/landing';
 import About from './screens/about';
@@ -97,14 +96,6 @@ class CustomDrawer extends Component {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.btn}
-              onPress={this.navigateToScreen('Orders')}>
-              <FeatherIcon name="box" size={25} color={drawerIconColor} />
-              <Text style={styles.text}>Orders</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={styles.btn}
               onPress={this.navigateToScreen('About')}>
               <FeatherIcon name="heart" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Wish list</Text>
@@ -179,9 +170,6 @@ const DrawerNav = {
   },
   Profile: {
     screen: Profile,
-  },
-  Orders: {
-    screen: Orders,
   },
   About: {
     screen: About,

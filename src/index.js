@@ -4,7 +4,6 @@ import {createStackNavigator} from 'react-navigation-stack';
 import CustomDrawer from './drawer';
 import Profile from './screens/profile';
 import Notifications from './screens/notifications';
-import Orders from './screens/orders';
 import WishList from './screens/wishList';
 //
 import About from '../src/screens/about';
@@ -30,13 +29,6 @@ const StackNav = createStackNavigator(
 
     Notifications: {
       screen: Notifications,
-      navigationOptions: ({navigation}) => ({
-        header: null,
-      }),
-    },
-
-    Orders: {
-      screen: Orders,
       navigationOptions: ({navigation}) => ({
         header: null,
       }),

@@ -6,7 +6,6 @@ import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import Home from './screens/landing';
 import Cart from './screens/cart';
 import Notifications from './screens/notifications';
-import Orders from './screens/orders';
 import WishList from './screens/wishList';
 
 import {
@@ -18,11 +17,10 @@ import {
 
 class MainTab extends React.Component {
   state = {
-    index: 2,
+    index: 0,
     routes: [
-      {key: 'Orders', icon: 'box'},
-      {key: 'Notifications', icon: 'bell'},
       {key: 'Home', icon: 'home'},
+      {key: 'Notifications', icon: 'bell'},
       {key: 'WishList', icon: 'heart'},
       {key: 'Cart', icon: 'shopping-cart'},
     ],
@@ -46,8 +44,6 @@ class MainTab extends React.Component {
 
   renderScene = ({route}) => {
     switch (route.key) {
-      case 'Orders':
-        return <Orders />;
       case 'WishList':
         return <WishList />;
       case 'Home':
