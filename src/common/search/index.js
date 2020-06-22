@@ -55,7 +55,7 @@ class Search extends Component {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={styles.search}>
+        {/* <View style={styles.search}>
           <TextInput
             value={this.state.searchTerm}
             style={styles.inputBox}
@@ -68,7 +68,7 @@ class Search extends Component {
             onPress={() => this.handleSearch(this.state.searchTerm)}>
             <EvilIcons name="search" size={30} color={colorBlack} />
           </TouchableOpacity>
-        </View>
+        </View> */}
       </View>
     );
   }

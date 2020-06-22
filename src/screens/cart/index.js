@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   FlatListProps,
   FlatList,
+  ToastAndroid,
   Image,
   Dimensions,
 } from 'react-native';
@@ -46,9 +47,6 @@ class CartList extends React.Component {
     super(props);
   }
 
-  removePokemon = async () => {
-    alert('removed');
-  };
   render() {
     return (
       <Swipeout
@@ -123,9 +121,21 @@ class Cart extends Component {
     let filterdPokemons = pokemons.filter(pokemon => {
       if (items.includes(pokemon.id)) return true;
     });
-    this.setState({cartdata: filterdPokemons}, () => {
-      console.log('dd', this.state);
-    });
+    this.setState({cartdata: filterdPokemons});
+  };
+
+  removeFromCart = async id => {
+    try {
+      let existing = await this.getData();
+      let filterdIds = existing.filter(item => {
+        return item != id;
+      });
+      await AsyncStorage.setItem('cart', JSON.stringify(filterdIds));
+      ToastAndroid.show('Removed', ToastAndroid.SHORT);
+      this.getCartItems();
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   render() {
@@ -140,7 +150,12 @@ class Cart extends Component {
                 style={{marginVertical: 20}}
                 showsVerticalScrollIndicator={false}
                 data={this.state.cartdata}
-                renderItem={({item}) => <CartList pokemon={item} />}
+                renderItem={({item}) => (
+                  <CartList
+                    pokemon={item}
+                    removeFromCart={this.removeFromCart}
+                  />
+                )}
                 keyExtractor={item => item.id}
               />
             </ScrollView>

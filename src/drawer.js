@@ -71,18 +71,26 @@ class CustomDrawer extends Component {
               <Text style={styles.text}>Home</Text>
             </TouchableOpacity>
 
-            <Text style={styles.section}>Products</Text>
+            <Text style={styles.section}>Menu</Text>
 
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.btn}
-              onPress={this.navigateToScreen('About')}>
+              onPress={this.navigateToScreen('Cart')}>
               <FeatherIcon
                 name="shopping-cart"
                 size={25}
                 color={drawerIconColor}
               />
               <Text style={styles.text}>Cart</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              activeOpacity={0.7}
+              style={styles.btn}
+              onPress={this.navigateToScreen('Cart')}>
+              <FeatherIcon name="bell" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Orders</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -96,7 +104,7 @@ class CustomDrawer extends Component {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.btn}
-              onPress={this.navigateToScreen('About')}>
+              onPress={this.navigateToScreen('WishList')}>
               <FeatherIcon name="heart" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Wish list</Text>
             </TouchableOpacity>

@@ -4,12 +4,13 @@ import {createStackNavigator} from 'react-navigation-stack';
 import CustomDrawer from './drawer';
 import Profile from './screens/profile';
 import Notifications from './screens/notifications';
-import WishList from './screens/wishList';
+import WishList from '../src/screens/wishList';
 //
 import About from '../src/screens/about';
 import Landing from '../src/screens/landing';
 import Product from '../src/screens/product';
 import Shop from '../src/screens/shop';
+import Cart from '../src/screens/cart';
 
 const StackNav = createStackNavigator(
   {
@@ -22,6 +23,13 @@ const StackNav = createStackNavigator(
 
     Profile: {
       screen: Profile,
+      navigationOptions: ({navigation}) => ({
+        header: null,
+      }),
+    },
+
+    Cart: {
+      screen: Cart,
       navigationOptions: ({navigation}) => ({
         header: null,
       }),
