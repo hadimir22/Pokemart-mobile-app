@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, ToastAndroid} from 'react-native';
 import {withNavigation} from 'react-navigation';
-import Empty from '../../common/emptyScreen';
-import AsyncStorage from '@react-native-community/async-storage';
 import WishListFlatListComponent from '../../common/wishListFlatList';
-import {pokemons} from '../../constants/pokemons';
+import {backgroundColorPrimary} from '../../constants';
 
 class WishList extends Component {
   constructor(props) {
@@ -16,7 +14,12 @@ class WishList extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View
+        style={{
+          flex: 1,
+          paddingVertical: 10,
+          backgroundColor: backgroundColorPrimary,
+        }}>
         <WishListFlatListComponent favorites={this.state.favorites} />
       </View>
     );

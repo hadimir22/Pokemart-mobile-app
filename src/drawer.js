@@ -88,9 +88,17 @@ class CustomDrawer extends Component {
             <TouchableOpacity
               activeOpacity={0.7}
               style={styles.btn}
-              onPress={this.navigateToScreen('Cart')}>
+              onPress={this.navigateToScreen('Notifications')}>
               <FeatherIcon name="bell" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Orders</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              activeOpacity={0.7}
+              style={styles.btn}
+              onPress={this.navigateToScreen('WishList')}>
+              <FeatherIcon name="heart" size={25} color={drawerIconColor} />
+              <Text style={styles.text}>Favorites</Text>
             </TouchableOpacity>
 
             <TouchableOpacity
@@ -99,14 +107,6 @@ class CustomDrawer extends Component {
               onPress={this.navigateToScreen('Profile')}>
               <FeatherIcon name="user" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Profile</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              activeOpacity={0.7}
-              style={styles.btn}
-              onPress={this.navigateToScreen('WishList')}>
-              <FeatherIcon name="heart" size={25} color={drawerIconColor} />
-              <Text style={styles.text}>Wish list</Text>
             </TouchableOpacity>
 
             <Text style={styles.section}>App preferences</Text>

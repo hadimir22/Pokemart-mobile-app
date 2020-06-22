@@ -14,28 +14,37 @@ import {
 import {withNavigation} from 'react-navigation';
 import Empty from '../../common/emptyScreen';
 import Swipeout from 'react-native-swipeout';
-import FeatherIcon from 'react-native-vector-icons/dist/Feather';
+import FeatherIcon from 'react-native-vector-icons/dist/Ionicons';
 import {colorWhite} from '../../constants';
 import {ScrollView} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
 import {pokemons} from '../../constants/pokemons';
-import {fontPoppinsLight, fontPoppinsBold} from '../../constants/index';
+import {
+  fontPoppinsLight,
+  fontPoppinsBold,
+  backgroundColorPrimary,
+} from '../../constants';
 import StarRatingComponent from '../../common/starRating';
 
 var swipeoutBtns = [
   {
-    component: (
-      <TouchableOpacity
-        onPress={() => this.removePokemon}
-        style={{
-          backgroundColor: 'brown',
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <FeatherIcon name="trash" size={25} color="white" />
-      </TouchableOpacity>
-    ),
+    onPress: function() {
+      alert('button pressed');
+    },
+    backgroundColor: 'brown',
+    text: 'Remove',
+    // component: (
+    //   <TouchableOpacity
+    //     activeOpacity={0.7}
+    //     style={{
+    //       backgroundColor: 'brown',
+    //       flex: 1,
+    //       justifyContent: 'center',
+    //       alignItems: 'center',
+    //     }}>
+    //     <FeatherIcon name="trash" size={25} color="white" />
+    //   </TouchableOpacity>
+    // ),
   },
 ];
 
@@ -52,7 +61,7 @@ class CartList extends React.Component {
       <Swipeout
         right={swipeoutBtns}
         autoClose={true}
-        sensitivity={1}
+        sensitivity={100}
         style={styles.list}>
         <View style={[styles.center, styles.main]}>
           <View style={{paddingVertical: 10}}>
@@ -70,6 +79,17 @@ class CartList extends React.Component {
             rating={this.props.pokemon.star}
             disabled={true}
           />
+          <TouchableOpacity
+            style={{padding: 10}}
+            activeOpacity={0.7}
+            onPress={() => this.props.removeFromCart(this.props.pokemon.id)}>
+            <FeatherIcon
+              name="ios-remove-circle-outline"
+              size={25}
+              color="black"
+            />
+          </TouchableOpacity>
+
           {/* <View style={styles.center}>
             <TouchableOpacity
               style={{paddingHorizontal: 10}}
@@ -128,7 +148,7 @@ class Cart extends Component {
     try {
       let existing = await this.getData();
       let filterdIds = existing.filter(item => {
-        return item != id;
+        return item !== id;
       });
       await AsyncStorage.setItem('cart', JSON.stringify(filterdIds));
       ToastAndroid.show('Removed', ToastAndroid.SHORT);
@@ -140,7 +160,7 @@ class Cart extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: backgroundColorPrimary}}>
         {!this.state.cartdata ? (
           <Empty icon="shopping-cart" text="your cart is empty" />
         ) : (
@@ -170,7 +190,7 @@ class Cart extends Component {
               </Text>
               <TouchableOpacity style={styles.checkoutBtn} activeOpacity={0.7}>
                 <Text style={{color: colorWhite, fontFamily: fontPoppinsBold}}>
-                  Buy Now
+                  Get Now
                 </Text>
               </TouchableOpacity>
             </View>
