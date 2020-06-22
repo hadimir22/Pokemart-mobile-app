@@ -25,6 +25,7 @@ import {
   backgroundColorPrimary,
 } from '../../constants';
 import StarRatingComponent from '../../common/starRating';
+import Modal from 'react-native-modal';
 
 var swipeoutBtns = [
   {
@@ -113,17 +114,24 @@ class Cart extends Component {
     super(props);
     this.state = {
       cartdata: null,
+      loading: true,
+      modal: true,
     };
-
     const {navigation} = this.props;
-    this.focusListener = navigation.addListener('didFocus', () => {
-      this.getCartItems();
+    this.focusListener = navigation.addListener('didFocus', async () => {
+      // this.setState({loading: true, cartdata: null});
+      // this.getCartItems();
+      // alert('focused');
     });
   }
 
   componentDidMount() {
     this.getCartItems();
   }
+
+  // componentWillUnmount() {
+  //   this.focusListener.remove();
+  // }
 
   getData = async () => {
     try {
@@ -188,11 +196,34 @@ class Cart extends Component {
                 ]}>
                 {this.state.cartdata.length} Pokemon
               </Text>
-              <TouchableOpacity style={styles.checkoutBtn} activeOpacity={0.7}>
+              <TouchableOpacity
+                style={styles.checkoutBtn}
+                activeOpacity={0.7}
+                onPress={() => this.setState({modal: !this.state.modal})}>
                 <Text style={{color: colorWhite, fontFamily: fontPoppinsBold}}>
                   Get Now
                 </Text>
               </TouchableOpacity>
+            </View>
+
+            <View>
+              <Modal
+                isVisible={this.state.modal}
+                avoidKeyboard={true}
+                backdropOpacity={0.6}>
+                <View
+                  style={{
+                    flex: 1,
+                    backgroundColor: 'orange',
+                    borderRadius: 15,
+                    opacity: 0.9,
+                    padding: 20,
+                  }}>
+                  <Text style={{textAlign: 'center'}}>
+                    Enter address information
+                  </Text>
+                </View>
+              </Modal>
             </View>
           </View>
         )}
@@ -210,6 +241,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     elevation: 15,
     marginBottom: 15,
+    marginHorizontal: 10,
+    borderRadius: 10,
   },
   center: {
     flexDirection: 'row',
