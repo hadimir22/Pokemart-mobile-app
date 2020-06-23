@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ActivityIndicator,
+  TextInput,
   FlatListProps,
   FlatList,
   ToastAndroid,
@@ -59,10 +60,10 @@ class CartList extends React.Component {
 
   render() {
     return (
-      <Swipeout
-        right={swipeoutBtns}
-        autoClose={true}
-        sensitivity={100}
+      <View
+        // right={swipeoutBtns}
+        // autoClose={true}
+        // sensitivity={100}
         style={styles.list}>
         <View style={[styles.center, styles.main]}>
           <View style={{paddingVertical: 10}}>
@@ -105,7 +106,7 @@ class CartList extends React.Component {
             </TouchableOpacity>
           </View> */}
         </View>
-      </Swipeout>
+      </View>
     );
   }
 }
@@ -166,6 +167,9 @@ class Cart extends Component {
     }
   };
 
+  order = async => {
+    this.setState({modal: false});
+  };
   render() {
     return (
       <View style={{flex: 1, backgroundColor: backgroundColorPrimary}}>
@@ -219,9 +223,51 @@ class Cart extends Component {
                     opacity: 0.9,
                     padding: 20,
                   }}>
-                  <Text style={{textAlign: 'center'}}>
+                  <Text
+                    style={{textAlign: 'center', fontFamily: fontPoppinsBold}}>
                     Enter address information
                   </Text>
+                  <TextInput
+                    value={this.state.name}
+                    style={styles.inputBox}
+                    placeholder="Name"
+                  />
+                  <TextInput
+                    value={this.state.name}
+                    style={styles.inputBox}
+                    numberOfLines={5}
+                    placeholder="Address"
+                    multiline={true}
+                  />
+                  <TextInput
+                    value={this.state.name}
+                    style={styles.inputBox}
+                    placeholder="Landmark"
+                  />
+                  <TextInput
+                    value={this.state.name}
+                    style={styles.inputBox}
+                    keyboardType="number-pad"
+                    placeholder="ZIP code"
+                  />
+                  <TouchableOpacity
+                    onPress={() => this.order()}
+                    activeOpacity={0.7}
+                    style={{
+                      backgroundColor: 'black',
+                      paddingVertical: 10,
+                      borderRadius: 15,
+                      marginTop: 30,
+                    }}>
+                    <Text
+                      style={{
+                        fontFamily: fontPoppinsBold,
+                        color: 'white',
+                        textAlign: 'center',
+                      }}>
+                      Order Now
+                    </Text>
+                  </TouchableOpacity>
                 </View>
               </Modal>
             </View>
@@ -267,6 +313,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 60,
     borderRadius: 50,
     marginRight: -25,
+  },
+  inputBox: {
+    marginTop: 10,
+    fontFamily: fontPoppinsLight,
+    paddingLeft: 15,
+    paddingVertical: 10,
+    marginBottom: 15,
+    fontSize: 16,
+    backgroundColor: 'white',
+    borderRadius: 15,
   },
 });
 
