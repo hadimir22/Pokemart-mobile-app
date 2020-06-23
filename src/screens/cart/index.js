@@ -134,9 +134,9 @@ class Cart extends Component {
   //   this.focusListener.remove();
   // }
 
-  getData = async () => {
+  getData = async key => {
     try {
-      const jsonValue = await AsyncStorage.getItem('cart');
+      const jsonValue = await AsyncStorage.getItem(key);
       return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {
       // error reading value
@@ -145,7 +145,7 @@ class Cart extends Component {
   };
 
   getCartItems = async () => {
-    let items = await this.getData();
+    let items = await this.getData('cart');
     console.log('cat items', items);
     let filterdPokemons = pokemons.filter(pokemon => {
       if (items.includes(pokemon.id)) return true;
@@ -155,7 +155,7 @@ class Cart extends Component {
 
   removeFromCart = async id => {
     try {
-      let existing = await this.getData();
+      let existing = await this.getData('cart');
       let filterdIds = existing.filter(item => {
         return item !== id;
       });
@@ -167,9 +167,27 @@ class Cart extends Component {
     }
   };
 
-  order = async => {
+  order = async () => {
     this.setState({modal: false});
+    let count = this.state.cartdata.length;
+    try {
+      let existing = await this.getData('order');
+
+      if (existing) {
+        let newArr = [...existing, count];
+        const value = JSON.stringify(newArr);
+        await AsyncStorage.setItem('order', value);
+      } else {
+        let newVal = [count];
+        const value = JSON.stringify(newVal);
+        await AsyncStorage.setItem('order', value);
+      }
+      ToastAndroid.show('Order successful', ToastAndroid.SHORT);
+    } catch (e) {
+      console.log(e);
+    }
   };
+
   render() {
     return (
       <View style={{flex: 1, backgroundColor: backgroundColorPrimary}}>
