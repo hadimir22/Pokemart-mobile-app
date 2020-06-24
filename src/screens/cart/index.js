@@ -116,7 +116,7 @@ class Cart extends Component {
     this.state = {
       cartdata: null,
       loading: true,
-      modal: true,
+      modal: false,
     };
     const {navigation} = this.props;
     this.focusListener = navigation.addListener('didFocus', async () => {
@@ -168,7 +168,6 @@ class Cart extends Component {
   };
 
   order = async () => {
-    this.setState({modal: false});
     let count = this.state.cartdata.length;
     try {
       let existing = await this.getData('order');
@@ -183,6 +182,12 @@ class Cart extends Component {
         await AsyncStorage.setItem('order', value);
       }
       ToastAndroid.show('Order successful', ToastAndroid.SHORT);
+      await AsyncStorage.removeItem('cart');
+
+      const keys = await AsyncStorage.getAllKeys();
+      const result = await AsyncStorage.multiGet(keys);
+      this.setState({modal: false, cartdata: null});
+      console.log(result);
     } catch (e) {
       console.log(e);
     }
