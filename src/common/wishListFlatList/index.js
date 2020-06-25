@@ -5,6 +5,7 @@ import {
   FlatList,
   StyleSheet,
   Text,
+  ActivityIndicator,
   TouchableOpacity,
   ToastAndroid,
 } from 'react-native';
@@ -13,6 +14,7 @@ import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import StarRatingComponent from '../starRating';
 import AsyncStorage from '@react-native-community/async-storage';
 import {pokemons} from '../../constants/pokemons';
+import Empty from '../../common/emptyScreen';
 
 function Item({item, addToCart, removeFromFav}) {
   return (
@@ -51,7 +53,7 @@ class WishListFlatListComponent extends Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       favorites: null,
     };
   }
@@ -73,7 +75,6 @@ class WishListFlatListComponent extends Component {
   addToCart = async id => {
     try {
       let existing = await this.getData('cart');
-
       if (existing) {
         if (existing.includes(id)) {
           return ToastAndroid.show('Already in cart', ToastAndroid.SHORT);
@@ -97,7 +98,9 @@ class WishListFlatListComponent extends Component {
     let filterdPokemons = pokemons.filter(pokemon => {
       if (items && items.includes(pokemon.id)) return true;
     });
-    this.setState({favorites: filterdPokemons});
+    setTimeout(() => {
+      this.setState({favorites: filterdPokemons, loading: false});
+    }, 500);
   };
 
   removeFromFav = async id => {
@@ -117,18 +120,26 @@ class WishListFlatListComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={this.state.favorites}
-          renderItem={({item}) => (
-            <Item
-              item={item}
-              addToCart={this.addToCart}
-              removeFromFav={this.removeFromFav}
-            />
-          )}
-          keyExtractor={item => item.id}
-        />
+        {this.state.loading ? (
+          <View style={{marginVertical: '50%'}}>
+            <ActivityIndicator size="large" color="tomato" />
+          </View>
+        ) : this.state.favorites && this.state.favorites.length == 0 ? (
+          <Empty icon="heart" text="No favorites added" />
+        ) : (
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={this.state.favorites}
+            renderItem={({item}) => (
+              <Item
+                item={item}
+                addToCart={this.addToCart}
+                removeFromFav={this.removeFromFav}
+              />
+            )}
+            keyExtractor={item => item.id}
+          />
+        )}
       </View>
     );
   }
