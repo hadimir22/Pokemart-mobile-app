@@ -148,9 +148,13 @@ class Cart extends Component {
     let items = await this.getData('cart');
     console.log('cat items', items);
     let filterdPokemons = pokemons.filter(pokemon => {
-      if (items.includes(pokemon.id)) return true;
+      if (items && items.includes(pokemon.id)) return true;
     });
-    this.setState({cartdata: filterdPokemons});
+    setTimeout(() => {
+      this.setState({cartdata: filterdPokemons, loading: false}, () => {
+        console.log('cart state', this.state);
+      });
+    }, 500);
   };
 
   removeFromCart = async id => {
@@ -186,7 +190,7 @@ class Cart extends Component {
 
       const keys = await AsyncStorage.getAllKeys();
       const result = await AsyncStorage.multiGet(keys);
-      this.setState({modal: false, cartdata: null});
+      this.setState({modal: false, cartdata: []});
       console.log(result);
     } catch (e) {
       console.log(e);
@@ -196,7 +200,14 @@ class Cart extends Component {
   render() {
     return (
       <View style={{flex: 1, backgroundColor: backgroundColorPrimary}}>
-        {!this.state.cartdata ? (
+        {this.state.loading ? (
+          <View
+            style={{
+              marginVertical: '50%',
+            }}>
+            <ActivityIndicator size="large" color="tomato" />
+          </View>
+        ) : this.state.cartdata && this.state.cartdata.length == 0 ? (
           <Empty icon="shopping-cart" text="your cart is empty" />
         ) : (
           <View style={{flex: 1}}>

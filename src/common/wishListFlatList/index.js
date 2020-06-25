@@ -95,7 +95,7 @@ class WishListFlatListComponent extends Component {
   getFavItems = async () => {
     let items = await this.getData('fav');
     let filterdPokemons = pokemons.filter(pokemon => {
-      if (items.includes(pokemon.id)) return true;
+      if (items && items.includes(pokemon.id)) return true;
     });
     this.setState({favorites: filterdPokemons});
   };
