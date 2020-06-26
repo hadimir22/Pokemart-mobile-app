@@ -53,8 +53,9 @@ class Notifications extends Component {
           <View style={{marginVertical: '50%'}}>
             <ActivityIndicator size="large" color="tomato" />
           </View>
-        ) : this.state.orders && this.state.orders.length == 0 ? (
-          <Empty icon="bell" text="No notifications" />
+        ) : (this.state.orders && this.state.orders.length == 0) ||
+          !this.state.orders ? (
+          <Empty icon="gift" text="No orders" />
         ) : (
           <View style={{flex: 1}}>
             <NotificationFlatListComponent orders={this.state.orders} />

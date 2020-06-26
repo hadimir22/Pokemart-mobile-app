@@ -20,7 +20,7 @@ class MainTab extends React.Component {
     index: 0,
     routes: [
       {key: 'Home', icon: 'home'},
-      {key: 'Notifications', icon: 'bell'},
+      {key: 'Notifications', icon: 'gift'},
       {key: 'WishList', icon: 'heart'},
       {key: 'Cart', icon: 'shopping-cart'},
     ],

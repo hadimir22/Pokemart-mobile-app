@@ -32,6 +32,14 @@ class Product extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.clearOrders();
+  }
+
+  clearOrders = async () => {
+    await AsyncStorage.removeItem('order');
+  };
+
   getData = async key => {
     try {
       const jsonValue = await AsyncStorage.getItem(key);
@@ -43,7 +51,6 @@ class Product extends React.Component {
   };
 
   addToCart = async id => {
-    console.log('ok', id);
     const keys = await AsyncStorage.getAllKeys();
     const result = await AsyncStorage.multiGet(keys);
     console.log(result);

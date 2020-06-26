@@ -89,7 +89,7 @@ class CustomDrawer extends Component {
               activeOpacity={0.7}
               style={styles.btn}
               onPress={this.navigateToScreen('Notifications')}>
-              <FeatherIcon name="bell" size={25} color={drawerIconColor} />
+              <FeatherIcon name="gift" size={25} color={drawerIconColor} />
               <Text style={styles.text}>Orders</Text>
             </TouchableOpacity>
 
