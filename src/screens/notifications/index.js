@@ -17,7 +17,7 @@ class Notifications extends Component {
     this.focusListener = navigation.addListener('didFocus', async () => {
       // this.setState({loading: true, cartdata: null});
       // this.getCartItems();
-      alert('focused');
+      // alert('focused');
     });
   }
 

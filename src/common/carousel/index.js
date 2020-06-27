@@ -1,18 +1,34 @@
 import React, {PureComponent} from 'react';
-import {Text, Image, Dimensions, StyleSheet, View} from 'react-native';
+import {
+  Text,
+  Image,
+  Dimensions,
+  StyleSheet,
+  View,
+  ImageBackground,
+} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+import {fontPoppinsBold} from '../../constants';
 
 export const carouselData = [
   {
-    title: 'Beautiful and dramatic Antelope Canyon',
+    image: require('../../assets/images/group.png'),
+    title: 'Buy your favorite pokemons',
+    color: 'tomato',
   },
   {
-    title: 'Earlier this morning, NYC',
+    image: require('../../assets/images/badges.jpg'),
+    title: 'Collect the gym badges',
+    color: 'purple',
   },
   {
+    image: require('../../assets/images/group2.png'),
     title: 'White Pocket Sunset',
+    color: 'pink',
   },
 ];
+
+const WIDTH = Dimensions.get('window').width;
 
 class ProductCarousel extends PureComponent {
   constructor(props) {
@@ -21,8 +37,22 @@ class ProductCarousel extends PureComponent {
 
   _renderItemWithParallax({item, index}, parallaxProps) {
     return (
-      <View style={{paddingVertical: 100, backgroundColor: 'teal'}}>
-        <Text>{item.title}</Text>
+      <View style={{paddingVertical: 25, backgroundColor: item.color}}>
+        <ImageBackground
+          source={item.image}
+          style={{height: 200, width: WIDTH}}>
+          <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <Text
+              style={{
+                fontFamily: fontPoppinsBold,
+                color: 'white',
+                fontSize: 20,
+                marginTop: -26,
+              }}>
+              {item.title}
+            </Text>
+          </View>
+        </ImageBackground>
       </View>
     );
   }
