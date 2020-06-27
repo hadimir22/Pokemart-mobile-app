@@ -13,7 +13,7 @@ import {fontPoppinsBold} from '../../constants';
 export const carouselData = [
   {
     image: require('../../assets/images/group.png'),
-    title: 'Buy your favorite pokemons',
+    title: 'Buy your favorite Pokemons',
     color: 'tomato',
   },
   {
@@ -22,8 +22,8 @@ export const carouselData = [
     color: 'purple',
   },
   {
-    image: require('../../assets/images/group2.png'),
-    title: 'White Pocket Sunset',
+    image: require('../../assets/images/group2.webp'),
+    title: 'Grow your team stronger',
     color: 'pink',
   },
 ];
