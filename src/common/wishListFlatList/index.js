@@ -12,6 +12,7 @@ import {
 import {colorWhite} from '../../constants';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import StarRatingComponent from '../starRating';
+import {withNavigation, withNavigationFocus} from 'react-navigation';
 import AsyncStorage from '@react-native-community/async-storage';
 import {pokemons} from '../../constants/pokemons';
 import Empty from '../../common/emptyScreen';
@@ -61,6 +62,17 @@ class WishListFlatListComponent extends Component {
   componentDidMount() {
     this.getFavItems();
   }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.isFocused) {
+      console.log('widh  foc');
+
+      this.getFavItems();
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   getData = async key => {
     try {
@@ -171,4 +183,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WishListFlatListComponent;
+export default withNavigationFocus(WishListFlatListComponent);

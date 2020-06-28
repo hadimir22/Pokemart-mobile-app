@@ -13,19 +13,19 @@ import {
   Dimensions,
 } from 'react-native';
 import {withNavigation, withNavigationFocus} from 'react-navigation';
-import Empty from '../common/emptyScreen';
+import Empty from '../../common/emptyScreen';
 import Swipeout from 'react-native-swipeout';
 import FeatherIcon from 'react-native-vector-icons/dist/Ionicons';
-import {colorWhite} from '../constants';
+import {colorWhite} from '../../constants';
 import {ScrollView} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
-import {pokemons} from '../constants/pokemons';
+import {pokemons} from '../../constants/pokemons';
 import {
   fontPoppinsLight,
   fontPoppinsBold,
   backgroundColorPrimary,
-} from '../constants';
-import StarRatingComponent from '../common/starRating';
+} from '../../constants';
+import StarRatingComponent from '../../common/starRating';
 import Modal from 'react-native-modal';
 
 var swipeoutBtns = [
@@ -122,17 +122,16 @@ class Cart extends Component {
 
   componentDidMount() {
     this.getCartItems();
-    this.didFocusListener = this.props.navigation.addListener(
-      'didFocus',
-      () => {
-        alert('did focus');
-      },
-    );
   }
 
-  componentWillUnmount() {
-    this.didFocusListener.remove();
-  }
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.isFocused) {
+      console.log('cart foc');
+
+      this.getCartItems();
+      return true;
+    }
+  };
 
   getData = async key => {
     try {
@@ -146,14 +145,11 @@ class Cart extends Component {
 
   getCartItems = async () => {
     let items = await this.getData('cart');
-    console.log('cat items', items);
     let filterdPokemons = pokemons.filter(pokemon => {
       if (items && items.includes(pokemon.id)) return true;
     });
     setTimeout(() => {
-      this.setState({cartdata: filterdPokemons, loading: false}, () => {
-        console.log('cart state', this.state);
-      });
+      this.setState({cartdata: filterdPokemons, loading: false}, () => {});
     }, 500);
   };
 
@@ -359,4 +355,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withNavigation(Cart);
+export default withNavigationFocus(Cart);

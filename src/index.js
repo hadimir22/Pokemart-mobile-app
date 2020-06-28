@@ -10,7 +10,7 @@ import About from '../src/screens/about';
 import Landing from '../src/screens/landing';
 import Product from '../src/screens/product';
 import Shop from '../src/screens/shop';
-import Cart from '../src/screens/cart';
+import Cart from './screens/cart';
 
 const StackNav = createStackNavigator(
   {

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, ActivityIndicator} from 'react-native';
-import {withNavigation} from 'react-navigation';
+import {withNavigation, withNavigationFocus} from 'react-navigation';
 import Empty from '../../common/emptyScreen';
 import NotificationFlatListComponent from '../../common/notificationFlatList';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -12,14 +12,18 @@ class Notifications extends Component {
       orders: null,
       loading: true,
     };
-
-    const {navigation} = this.props;
-    this.focusListener = navigation.addListener('didFocus', async () => {
-      // this.setState({loading: true, cartdata: null});
-      // this.getCartItems();
-      // alert('focused');
-    });
   }
+
+  shouldComponentUpdate = (nextProps, nextState) => {
+    if (nextProps.isFocused) {
+      console.log('fav foc');
+
+      this.getOrders();
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   getData = async key => {
     try {
@@ -33,11 +37,10 @@ class Notifications extends Component {
 
   getOrders = async () => {
     let items = await this.getData('order');
-    console.log('cat items', items);
 
     setTimeout(() => {
       this.setState({orders: items, loading: false}, () => {
-        console.log('orders', this.state);
+        console.log('sta', this.state);
       });
     }, 500);
   };
@@ -54,7 +57,7 @@ class Notifications extends Component {
             <ActivityIndicator size="large" color="tomato" />
           </View>
         ) : (this.state.orders && this.state.orders.length == 0) ||
-          !this.state.orders ? (
+          this.state.orders == null ? (
           <Empty icon="gift" text="No orders" />
         ) : (
           <View style={{flex: 1}}>
@@ -68,4 +71,4 @@ class Notifications extends Component {
 
 const styles = StyleSheet.create({});
 
-export default withNavigation(Notifications);
+export default withNavigationFocus(Notifications);

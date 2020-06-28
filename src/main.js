@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, StatusBar} from 'react-native';
 import Search from '../src/common/search';
-import MainTab from './screens/tabs';
+import MainTab from './tabs';
 import {backgroundColorPrimary} from './constants/index';
 class Main extends Component {
   render() {

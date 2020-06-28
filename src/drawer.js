@@ -14,7 +14,7 @@ import Notifications from './screens/notifications';
 import Home from './screens/landing';
 import About from './screens/about';
 import Product from './screens/product';
-import MainTab from './screens/tabs';
+import MainTab from './tabs';
 import Shop from './screens/shop';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import Main from './main';
