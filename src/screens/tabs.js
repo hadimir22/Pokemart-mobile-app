@@ -3,17 +3,17 @@ import {View, StyleSheet, Dimensions} from 'react-native';
 import {TabView, TabBar} from 'react-native-tab-view';
 import {withNavigation} from 'react-navigation';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
-import Home from './screens/landing';
-import Cart from './screens/cart';
-import Notifications from './screens/notifications';
-import WishList from './screens/wishList';
+import Home from './landing/';
+import Cart from './cart';
+import Notifications from './notifications';
+import WishList from './wishList';
 
 import {
   tabBackgroundColor,
   tabIndicatorColor,
   tabLabelColor,
   tabIconColor,
-} from './constants';
+} from '../constants';
 
 class MainTab extends React.Component {
   state = {

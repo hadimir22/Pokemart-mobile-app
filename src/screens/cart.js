@@ -12,20 +12,20 @@ import {
   Image,
   Dimensions,
 } from 'react-native';
-import {withNavigation} from 'react-navigation';
-import Empty from '../../common/emptyScreen';
+import {withNavigation, withNavigationFocus} from 'react-navigation';
+import Empty from '../common/emptyScreen';
 import Swipeout from 'react-native-swipeout';
 import FeatherIcon from 'react-native-vector-icons/dist/Ionicons';
-import {colorWhite} from '../../constants';
+import {colorWhite} from '../constants';
 import {ScrollView} from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-community/async-storage';
-import {pokemons} from '../../constants/pokemons';
+import {pokemons} from '../constants/pokemons';
 import {
   fontPoppinsLight,
   fontPoppinsBold,
   backgroundColorPrimary,
-} from '../../constants';
-import StarRatingComponent from '../../common/starRating';
+} from '../constants';
+import StarRatingComponent from '../common/starRating';
 import Modal from 'react-native-modal';
 
 var swipeoutBtns = [
@@ -118,21 +118,21 @@ class Cart extends Component {
       loading: true,
       modal: false,
     };
-    const {navigation} = this.props;
-    this.focusListener = navigation.addListener('didFocus', async () => {
-      // this.setState({loading: true, cartdata: null});
-      // this.getCartItems();
-      // alert('focused');
-    });
   }
 
   componentDidMount() {
     this.getCartItems();
+    this.didFocusListener = this.props.navigation.addListener(
+      'didFocus',
+      () => {
+        alert('did focus');
+      },
+    );
   }
 
-  // componentWillUnmount() {
-  //   this.focusListener.remove();
-  // }
+  componentWillUnmount() {
+    this.didFocusListener.remove();
+  }
 
   getData = async key => {
     try {
@@ -249,14 +249,7 @@ class Cart extends Component {
                 isVisible={this.state.modal}
                 avoidKeyboard={true}
                 backdropOpacity={0.6}>
-                <View
-                  style={{
-                    flex: 1,
-                    backgroundColor: 'orange',
-                    borderRadius: 15,
-                    opacity: 0.9,
-                    padding: 20,
-                  }}>
+                <View style={styles.modal}>
                   <Text
                     style={{textAlign: 'center', fontFamily: fontPoppinsBold}}>
                     Enter address information
@@ -287,20 +280,8 @@ class Cart extends Component {
                   <TouchableOpacity
                     onPress={() => this.order()}
                     activeOpacity={0.7}
-                    style={{
-                      backgroundColor: 'black',
-                      paddingVertical: 10,
-                      borderRadius: 15,
-                      marginTop: 30,
-                    }}>
-                    <Text
-                      style={{
-                        fontFamily: fontPoppinsBold,
-                        color: 'white',
-                        textAlign: 'center',
-                      }}>
-                      Order Now
-                    </Text>
+                    style={styles.orderNow}>
+                    <Text style={styles.orderText}>Order Now</Text>
                   </TouchableOpacity>
                 </View>
               </Modal>
@@ -357,6 +338,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: 'white',
     borderRadius: 15,
+  },
+  modal: {
+    flex: 1,
+    backgroundColor: 'orange',
+    borderRadius: 15,
+    opacity: 0.9,
+    padding: 20,
+  },
+  orderNow: {
+    backgroundColor: 'black',
+    paddingVertical: 10,
+    borderRadius: 15,
+    marginTop: 30,
+  },
+  orderText: {
+    fontFamily: fontPoppinsBold,
+    color: 'white',
+    textAlign: 'center',
   },
 });
 
