@@ -126,8 +126,6 @@ class Cart extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps.isFocused) {
-      console.log('cart foc');
-
       this.getCartItems();
       return true;
     }
@@ -187,7 +185,6 @@ class Cart extends Component {
       const keys = await AsyncStorage.getAllKeys();
       const result = await AsyncStorage.multiGet(keys);
       this.setState({modal: false, cartdata: []});
-      console.log(result);
     } catch (e) {
       console.log(e);
     }

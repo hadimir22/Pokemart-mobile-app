@@ -16,8 +16,6 @@ class Notifications extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps.isFocused) {
-      console.log('fav foc');
-
       this.getOrders();
       return true;
     } else {
@@ -39,9 +37,7 @@ class Notifications extends Component {
     let items = await this.getData('order');
 
     setTimeout(() => {
-      this.setState({orders: items, loading: false}, () => {
-        console.log('sta', this.state);
-      });
+      this.setState({orders: items, loading: false}, () => {});
     }, 500);
   };
 

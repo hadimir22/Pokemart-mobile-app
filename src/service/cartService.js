@@ -12,15 +12,13 @@ let getData = async key => {
 };
 
 let addToCart = async id => {
-  console.log('ok', id);
   const keys = await AsyncStorage.getAllKeys();
   const result = await AsyncStorage.multiGet(keys);
-  console.log(result);
+
   try {
     let existing = await this.getData('cart');
 
     if (existing) {
-      console.log('ko', existing);
       if (existing.includes(id)) {
         return ToastAndroid.show('Already in cart', ToastAndroid.SHORT);
       }

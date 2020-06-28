@@ -65,8 +65,6 @@ class WishListFlatListComponent extends Component {
 
   shouldComponentUpdate = (nextProps, nextState) => {
     if (nextProps.isFocused) {
-      console.log('widh  foc');
-
       this.getFavItems();
       return true;
     } else {

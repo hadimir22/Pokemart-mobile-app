@@ -53,12 +53,11 @@ class Product extends React.Component {
   addToCart = async id => {
     const keys = await AsyncStorage.getAllKeys();
     const result = await AsyncStorage.multiGet(keys);
-    console.log(result);
+
     try {
       let existing = await this.getData('cart');
 
       if (existing) {
-        console.log('ko', existing);
         if (existing.includes(id)) {
           return ToastAndroid.show('Already in cart', ToastAndroid.SHORT);
         }
@@ -77,12 +76,10 @@ class Product extends React.Component {
   };
 
   addToFavorites = async id => {
-    console.log('ok', id);
     try {
       let existing = await this.getData('fav');
 
       if (existing) {
-        console.log(existing);
         if (existing.includes(id)) {
           return ToastAndroid.show('Already in favorites', ToastAndroid.SHORT);
         }
