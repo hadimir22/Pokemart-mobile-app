@@ -4,6 +4,7 @@ import {withNavigation, withNavigationFocus} from 'react-navigation';
 import Empty from '../../common/emptyScreen';
 import NotificationFlatListComponent from '../../common/notificationFlatList';
 import AsyncStorage from '@react-native-community/async-storage';
+import {backgroundColorPrimary} from '../../constants';
 
 class Notifications extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ class Notifications extends Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor: backgroundColorPrimary}}>
         {this.state.loading ? (
           <View style={{marginVertical: '50%'}}>
             <ActivityIndicator size="large" color="tomato" />

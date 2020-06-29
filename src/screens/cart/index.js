@@ -128,6 +128,8 @@ class Cart extends Component {
     if (nextProps.isFocused) {
       this.getCartItems();
       return true;
+    } else {
+      return false;
     }
   };
 

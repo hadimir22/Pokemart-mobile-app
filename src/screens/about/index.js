@@ -4,6 +4,7 @@ import {withNavigation} from 'react-navigation';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import Back from '../../common/backHeader';
+import {backgroundColorPrimary} from '../../constants';
 
 class About extends Component {
   constructor(props) {
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   },
   main: {
     marginTop: 0,
-    backgroundColor: 'white',
+    backgroundColor: backgroundColorPrimary,
     flex: 1,
   },
   storeInfo: {
