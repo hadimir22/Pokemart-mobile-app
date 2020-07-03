@@ -192,7 +192,7 @@ export const pokemons = [
     id: 22,
     name: 'Spearow',
     image: require('../assets/pokemons/pika1.png'),
-    type: 'Normal',
+    type: 'Flying',
     weight: '2 kg',
     Height: '0.3 m',
     star: 5,
