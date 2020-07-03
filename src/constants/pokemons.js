@@ -179,4 +179,22 @@ export const pokemons = [
     Height: '0.3 m',
     star: 5,
   },
+  {
+    id: 21,
+    name: 'Raticate',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Normal',
+    weight: '18.5 kg',
+    Height: '0.7 m',
+    star: 5,
+  },
+  {
+    id: 22,
+    name: 'Spearow',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Normal',
+    weight: '2 kg',
+    Height: '0.3 m',
+    star: 5,
+  },
 ];
