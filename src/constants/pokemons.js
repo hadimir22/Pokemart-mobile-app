@@ -143,4 +143,22 @@ export const pokemons = [
     Height: '1 m',
     star: 5,
   },
+  {
+    id: 17,
+    name: 'Pidgey',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Flying',
+    weight: '1.8 kg',
+    Height: '0.3 m',
+    star: 5,
+  },
+  {
+    id: 18,
+    name: 'Pidgeotto',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Flying',
+    weight: '30 kg',
+    Height: '1.1 m',
+    star: 5,
+  },
 ];
