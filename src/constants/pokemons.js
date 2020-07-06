@@ -197,4 +197,13 @@ export const pokemons = [
     Height: '0.3 m',
     star: 5,
   },
+  {
+    id: 22,
+    name: 'Fearow',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Flying',
+    weight: '38 kg',
+    Height: '1.2 m',
+    star: 5,
+  },
 ];
