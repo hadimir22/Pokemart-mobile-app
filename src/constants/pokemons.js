@@ -224,4 +224,13 @@ export const pokemons = [
     Height: '3.5 m',
     star: 5,
   },
+  {
+    id: 26,
+    name: 'Raichu',
+    image: require('../assets/pokemons/pika1.png'),
+    type: 'Electric',
+    weight: '30 kg',
+    Height: '0.8 m',
+    star: 5,
+  },
 ];
