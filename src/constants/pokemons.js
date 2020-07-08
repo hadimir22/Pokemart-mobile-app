@@ -2,7 +2,7 @@ export const pokemons = [
   {
     id: 1,
     name: 'Bulbasaur',
-    image: require('../assets/pokemons/bulba1.png'),
+    image: require('../assets/pokemons/bulbasaur.jpg'),
     type: 'grass',
     weight: '6.9 kg',
     Height: '0.7 m',
@@ -11,7 +11,7 @@ export const pokemons = [
   {
     id: 2,
     name: 'Ivysaur',
-    image: require('../assets/pokemons/bulba1.png'),
+    image: require('../assets/pokemons/ivasaur.png'),
     type: 'grass',
     weight: '13 kg',
     Height: '1 m',
@@ -20,7 +20,7 @@ export const pokemons = [
   {
     id: 3,
     name: 'Venusaur',
-    image: require('../assets/pokemons/bulba1.png'),
+    image: require('../assets/pokemons/bulbasaur.png'),
     type: 'grass',
     weight: '100 kg',
     Height: '2 m',
@@ -29,7 +29,7 @@ export const pokemons = [
   {
     id: 4,
     name: 'Charmander',
-    image: require('../assets/pokemons/char3.png'),
+    image: require('../assets/pokemons/charmander.png'),
     type: 'Fire',
     weight: '8.5 kg',
     Height: '0.6 m',
@@ -38,7 +38,7 @@ export const pokemons = [
   {
     id: 5,
     name: 'Charmeleon',
-    image: require('../assets/pokemons/char3.png'),
+    image: require('../assets/pokemons/charmander.png'),
     type: 'Fire',
     weight: '19 kg',
     Height: '1.1 m',
@@ -47,7 +47,7 @@ export const pokemons = [
   {
     id: 6,
     name: 'Charizard',
-    image: require('../assets/pokemons/char3.png'),
+    image: require('../assets/pokemons/charmander.png'),
     type: 'Fire',
     weight: '90.5 kg',
     Height: '1.7 m',
