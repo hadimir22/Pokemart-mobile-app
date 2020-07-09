@@ -146,7 +146,7 @@ export const pokemons = [
   {
     id: 17,
     name: 'Pidgey',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/pidgey.png'),
     type: 'Flying',
     weight: '1.8 kg',
     Height: '0.3 m',
@@ -155,7 +155,7 @@ export const pokemons = [
   {
     id: 18,
     name: 'Pidgeotto',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/pidgeotto.png'),
     type: 'Flying',
     weight: '30 kg',
     Height: '1.1 m',
@@ -164,7 +164,7 @@ export const pokemons = [
   {
     id: 19,
     name: 'Pidgeot',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/pidgeot.png'),
     type: 'Flying',
     weight: '39.5 kg',
     Height: '1.5 m',
@@ -173,7 +173,7 @@ export const pokemons = [
   {
     id: 20,
     name: 'Rattata',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/rattata.png'),
     type: 'Normal',
     weight: '3.5 kg',
     Height: '0.3 m',
@@ -182,7 +182,7 @@ export const pokemons = [
   {
     id: 21,
     name: 'Raticate',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/raticate.png'),
     type: 'Normal',
     weight: '18.5 kg',
     Height: '0.7 m',
@@ -191,7 +191,7 @@ export const pokemons = [
   {
     id: 22,
     name: 'Spearow',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/spearow.png'),
     type: 'Flying',
     weight: '2 kg',
     Height: '0.3 m',
