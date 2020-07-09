@@ -56,7 +56,7 @@ export const pokemons = [
   {
     id: 7,
     name: 'Squirtle',
-    image: require('../assets/pokemons/squrtle2.png'),
+    image: require('../assets/pokemons/squrtle.png'),
     type: 'Water',
     weight: '9 kg',
     Height: '0.5 m',
