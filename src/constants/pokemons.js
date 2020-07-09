@@ -200,7 +200,7 @@ export const pokemons = [
   {
     id: 23,
     name: 'Fearow',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/fearow.png'),
     type: 'Flying',
     weight: '38 kg',
     Height: '1.2 m',
@@ -209,7 +209,7 @@ export const pokemons = [
   {
     id: 24,
     name: 'Ekans',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/ekans.png'),
     type: 'Poison',
     weight: '6.9 kg',
     Height: '2 m',
@@ -218,7 +218,7 @@ export const pokemons = [
   {
     id: 25,
     name: 'Arbok',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/abrok.png'),
     type: 'Flying',
     weight: '65 kg',
     Height: '3.5 m',
@@ -227,7 +227,7 @@ export const pokemons = [
   {
     id: 26,
     name: 'Raichu',
-    image: require('../assets/pokemons/pikachu.png'),
+    image: require('../assets/pokemons/raichu.png'),
     type: 'Electric',
     weight: '30 kg',
     Height: '0.8 m',
