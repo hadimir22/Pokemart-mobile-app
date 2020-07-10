@@ -6,7 +6,7 @@ export const pokemons = [
     type: 'grass',
     weight: '6.9 kg',
     Height: '0.7 m',
-    star: 3,
+    star: 5,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const pokemons = [
     type: 'grass',
     weight: '100 kg',
     Height: '2 m',
-    star: 3,
+    star: 2,
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const pokemons = [
     type: 'Fire',
     weight: '8.5 kg',
     Height: '0.6 m',
-    star: 4,
+    star: 5,
   },
   {
     id: 5,
@@ -60,7 +60,7 @@ export const pokemons = [
     type: 'Water',
     weight: '9 kg',
     Height: '0.5 m',
-    star: 3,
+    star: 5,
   },
   {
     id: 8,
@@ -96,7 +96,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '2.9 kg',
     Height: '0.3 m',
-    star: 5,
+    star: 1,
   },
   {
     id: 12,
@@ -114,7 +114,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '32 kg',
     Height: '1.1 m',
-    star: 5,
+    star: 3,
   },
   {
     id: 14,
@@ -123,7 +123,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '3.2 kg',
     Height: '0.3 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 15,
@@ -132,7 +132,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '10 kg',
     Height: '0.6 m',
-    star: 5,
+    star: 1,
   },
   {
     id: 16,
@@ -141,7 +141,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '29.5 kg',
     Height: '1 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 17,
@@ -159,7 +159,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '30 kg',
     Height: '1.1 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 19,
@@ -168,7 +168,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '39.5 kg',
     Height: '1.5 m',
-    star: 5,
+    star: 3,
   },
   {
     id: 20,
@@ -177,7 +177,7 @@ export const pokemons = [
     type: 'Normal',
     weight: '3.5 kg',
     Height: '0.3 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 21,
@@ -195,7 +195,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '2 kg',
     Height: '0.3 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 23,
@@ -204,7 +204,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '38 kg',
     Height: '1.2 m',
-    star: 5,
+    star: 4,
   },
   {
     id: 24,
@@ -213,7 +213,7 @@ export const pokemons = [
     type: 'Poison',
     weight: '6.9 kg',
     Height: '2 m',
-    star: 5,
+    star: 3,
   },
   {
     id: 25,
@@ -222,7 +222,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '65 kg',
     Height: '3.5 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 26,
