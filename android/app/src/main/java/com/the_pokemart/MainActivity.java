@@ -1,4 +1,4 @@
-package com.vmash;
+package com.the_pokemart;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
