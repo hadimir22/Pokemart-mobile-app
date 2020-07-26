@@ -7,14 +7,10 @@ import {
   Image,
   ScrollView,
 } from 'react-native';
-import {createAppContainer, NavigationActions} from 'react-navigation';
+import {NavigationActions} from 'react-navigation';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 import Profile from './screens/profile';
-import Notifications from './screens/notifications';
-import Home from './screens/landing';
 import About from './screens/about';
-import Product from './screens/product';
-import MainTab from './tabs';
 import Shop from './screens/shop';
 import FeatherIcon from 'react-native-vector-icons/dist/Feather';
 import Main from './main';
@@ -39,11 +35,9 @@ class CustomDrawer extends Component {
     this.props.navigation.closeDrawer();
   };
 
-  componentDidMount() {}
-
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: drawerBackgroundColor}}>
+      <View style={styles.main}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.logo}>
             <Image
@@ -51,15 +45,7 @@ class CustomDrawer extends Component {
               style={{height: 100, width: 100}}
               resizeMode="contain"
             />
-            <Text
-              style={{
-                fontFamily: fontPoppinsLight,
-                marginTop: 10,
-                fontWeight: '500',
-                color: 'tomato',
-              }}>
-              Hello, Ash
-            </Text>
+            <Text style={styles.name}>Hello, Ash</Text>
           </View>
 
           <View style={{paddingVertical: 15}}>
@@ -120,12 +106,7 @@ class CustomDrawer extends Component {
             </TouchableOpacity>
           </View>
 
-          <Text
-            style={{
-              textAlign: 'center',
-              color: drawerTextColor,
-              fontFamily: fontPoppinsLight,
-            }}>
+          <Text style={styles.madewith}>
             Made with{' '}
             <Image
               source={require('./assets/images/pokeball.png')}
@@ -144,6 +125,21 @@ class CustomDrawer extends Component {
 }
 
 const styles = StyleSheet.create({
+  main: {
+    flex: 1,
+    backgroundColor: drawerBackgroundColor,
+  },
+  madewith: {
+    textAlign: 'center',
+    color: drawerTextColor,
+    fontFamily: fontPoppinsLight,
+  },
+  name: {
+    fontFamily: fontPoppinsLight,
+    marginTop: 10,
+    fontWeight: '500',
+    color: 'tomato',
+  },
   btn: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
