@@ -1,13 +1,5 @@
 import React, {Component} from 'react';
-import {
-  Text,
-  View,
-  TouchableOpacity,
-  StatusBar,
-  Image,
-  StyleSheet,
-  Modal,
-} from 'react-native';
+import {Text, View, StatusBar, Image, StyleSheet} from 'react-native';
 import {withNavigation} from 'react-navigation';
 import Back from '../../common/backHeader';
 import {backgroundColorPrimary, colorWhite} from '../../constants';
@@ -35,14 +27,7 @@ class Profile extends Component {
               style={styles.userImage}
               resizeMode="contain"
             />
-            <Text
-              style={{
-                alignSelf: 'center',
-                paddingVertical: 20,
-                fontWeight: 'bold',
-              }}>
-              Ash Ketchum
-            </Text>
+            <Text style={styles.name}>Ash Ketchum</Text>
           </View>
           <View style={styles.userSetting}>
             <View style={styles.settingHead}>
@@ -53,14 +38,7 @@ class Profile extends Component {
                     size={25}
                     color={iconColorPrimary}
                   />
-                  <Text
-                    style={{
-                      paddingLeft: 10,
-                      fontWeight: 'bold',
-                      color: 'brown',
-                    }}>
-                    User Info
-                  </Text>
+                  <Text style={styles.user}>User Info</Text>
                 </View>
               </View>
             </View>
@@ -117,6 +95,16 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
     backgroundColor: backgroundColorPrimary,
+  },
+  name: {
+    alignSelf: 'center',
+    paddingVertical: 20,
+    fontWeight: 'bold',
+  },
+  user: {
+    paddingLeft: 10,
+    fontWeight: 'bold',
+    color: 'brown',
   },
   userInfo: {
     backgroundColor: colorWhite,
