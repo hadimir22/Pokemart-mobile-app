@@ -1,11 +1,9 @@
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-//import {createStackNavigator} from 'react-navigation-stack';
 import CustomDrawer from './drawer';
 import Profile from './screens/profile';
 import Notifications from './screens/notifications';
 import WishList from '../src/screens/wishList';
-//
 import About from '../src/screens/about';
 import Landing from '../src/screens/landing';
 import Product from '../src/screens/product';
@@ -48,7 +46,6 @@ const StackNav = createStackNavigator(
         header: null,
       }),
     },
-    //
     Landing: {
       screen: Landing,
       navigationOptions: ({navigation}) => ({
