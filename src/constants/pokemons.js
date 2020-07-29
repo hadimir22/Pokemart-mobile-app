@@ -195,7 +195,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '2 kg',
     Height: '0.3 m',
-    star: 2,
+    star: 3,
   },
   // {
   //   id: 23,
