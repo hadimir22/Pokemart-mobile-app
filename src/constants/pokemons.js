@@ -213,7 +213,7 @@ export const pokemons = [
     type: 'Poison',
     weight: '6.9 kg',
     Height: '2 m',
-    star: 3,
+    star: 2,
   },
   {
     id: 25,
@@ -222,7 +222,7 @@ export const pokemons = [
     type: 'Flying',
     weight: '65 kg',
     Height: '3.5 m',
-    star: 2,
+    star: 3,
   },
   {
     id: 26,
