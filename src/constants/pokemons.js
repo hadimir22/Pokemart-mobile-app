@@ -105,7 +105,7 @@ export const pokemons = [
     type: 'Bug',
     weight: '9.9 kg',
     Height: '0.7 m',
-    star: 5,
+    star: 2,
   },
   {
     id: 13,
