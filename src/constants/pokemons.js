@@ -51,7 +51,7 @@ export const pokemons = [
     type: 'Fire',
     weight: '90.5 kg',
     Height: '1.7 m',
-    star: 4,
+    star: 3,
   },
   {
     id: 7,
