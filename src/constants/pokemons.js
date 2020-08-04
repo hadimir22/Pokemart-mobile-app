@@ -15,7 +15,7 @@ export const pokemons = [
     type: 'grass',
     weight: '13 kg',
     Height: '1 m',
-    star: 3,
+    star: 2,
   },
   {
     id: 3,
